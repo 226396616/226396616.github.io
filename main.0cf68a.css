@@ -883,6 +883,7 @@ html {
 
 .left-col {
     /* background: #fff; */
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('http://bucket836.oss-cn-shenzhen.aliyuncs.com/wallpaper/381535373.jpeg') no-repeat 0% 20%/ cover;
     width: 300px;
     position: fixed;
     opacity: 1;
@@ -3076,6 +3077,9 @@ pre .id {
 }
 
 @media screen and (max-width:800px) {
+    body {
+        background: url('https://oss.yansheng.xyz/your-name-phone2ys.jpg') no-repeat fixed top;
+    }
     #container,
     body,
     html {
