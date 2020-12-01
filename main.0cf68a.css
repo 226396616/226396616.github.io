@@ -319,7 +319,7 @@ body {
     font-family: Helvetica Neue, Helvetica, STHeiTi, Arial, sans-serif;
     line-height: 1.5;
     color: #333;
-    /*background-color:#fff;*/
+    /* background-color: #fff; */
     background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/00/ChMkJlbKw6KIXhXnAA4L-_oxRzUAALG6QBUSg8ADgwT181.jpg') no-repeat 0% 0%/ cover;
     min-height: 100%
 }
@@ -867,7 +867,7 @@ html {
     position: absolute;
     right: 0;
     min-height: 100%;
-    background: #eaeaea;
+    /* background: #eaeaea; */
     left: 300px;
     width: auto
 }
@@ -882,15 +882,8 @@ html {
 }
 
 .left-col {
-    /*background:rgb(131, 125, 125);*/
+    /* background: #fff; */
     background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('http://bucket836.oss-cn-shenzhen.aliyuncs.com/wallpaper/381535373.jpeg') no-repeat 0% 20%/ cover;
-    width: 300px;
-    position: fixed;
-    opacity: 1;
-    transition: all .3s ease-in;
-    -ms-transition: all .3s ease-in;
-    height: 100%;
-    z-index: 999;
     width: 300px;
     position: fixed;
     opacity: 1;
@@ -3493,7 +3486,10 @@ pre .id {
     }
 }
 
-! PhotoSwipe Default UI CSS by Dmitry Semenov | photoswipe.com | MIT license.pswp__button {
+
+/*! PhotoSwipe Default UI CSS by Dmitry Semenov | photoswipe.com | MIT license */
+
+.pswp__button {
     width: 44px;
     height: 44px;
     position: relative;
@@ -3994,7 +3990,10 @@ a.pswp__share--download:hover {
     background: none
 }
 
-! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license.pswp {
+
+/*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */
+
+.pswp {
     display: none;
     position: absolute;
     width: 100%;
