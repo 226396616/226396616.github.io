@@ -1382,7 +1382,7 @@ pre .id {
 }
 
 .archive-article-date {
-    color: #999;
+    color: #4b4949;
     margin-right: 7.6923%;
     float: right
 }
@@ -1701,7 +1701,8 @@ pre .id {
     margin: 0 30px;
     padding-right: 60px;
     border-bottom: 1px solid #eee;
-    background: #fff
+    /* background: #fff */
+    background: rgba(255, 255, 255, .5);
 }
 
 .archives-wrap:first-child {
@@ -1752,13 +1753,13 @@ pre .id {
 }
 
 .archives .archive-article-title {
-    font-size: 16px;
-    color: #333;
+    font-size: 20px;
+    /* color: #333; */
     transition: color .3s
 }
 
 .archives .archive-article-title:hover {
-    color: #657b83
+    /* color: #657b83 */
 }
 
 .archives .archive-article-title span {
@@ -1816,7 +1817,7 @@ pre .id {
 
 .archive-article-inner .article-meta .archive-article-date {
     cursor: default;
-    font-size: 12px;
+    font-size: 15px;
     margin-bottom: 5px;
     margin-top: -10px;
     margin-right: 0
@@ -2173,7 +2174,8 @@ pre .id {
 }
 
 .article-meta time {
-    color: #aaa
+    /* color: #aaa */
+    color: #2f2d2a;
 }
 
 .article-meta time .icon-clock {
