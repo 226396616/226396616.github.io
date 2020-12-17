@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://226396616.github.io">
-  <title>Archives: 2020 | ypj博客</title>
+  <title># Java如何让自己写的代码生成帮助文档 | ypj博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ypj博客">
-<meta property="og:url" content="https://226396616.github.io/archives/2020/index.html">
+  <meta name="description" content="Java如何让自己写的代码生成帮助文档 对写的java代码加文档注释下： 1234567891011public class HelloWord&amp;#123;&#x2F;***@author yang*@param args helloword*@since 1.0*&#x2F;public static void main(String[] args)&amp;#123;System.out.printl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="# Java如何让自己写的代码生成帮助文档">
+<meta property="og:url" content="https://226396616.github.io/2020/12/17/Java%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/index.html">
 <meta property="og:site_name" content="ypj博客">
+<meta property="og:description" content="Java如何让自己写的代码生成帮助文档 对写的java代码加文档注释下： 1234567891011public class HelloWord&amp;#123;&#x2F;***@author yang*@param args helloword*@since 1.0*&#x2F;public static void main(String[] args)&amp;#123;System.out.printl">
 <meta property="og:locale">
+<meta property="article:published_time" content="2020-12-17T03:29:48.000Z">
+<meta property="article:modified_time" content="2020-12-17T03:30:07.611Z">
 <meta property="article:author" content="yangpengju">
 <meta name="twitter:card" content="summary">
   
@@ -172,159 +176,215 @@
                                                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
                                             </div>
                                             <div id="js-content" class="content-ll">
-                                                
+                                                <article id="post-Java如何让自己写的代码生成帮助文档" class="article article-type-post " itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
   
+    <h1 class="article-title" itemprop="name">
+      # Java如何让自己写的代码生成帮助文档
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/17/Java%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/" class="archive-article-date">
+
+                    
+
+
+
+
+
+                        阅读数: 次
+
+
+                        
+                            
+                                <a href="/2020/12/17/Java%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/" class="archive-article-date">
   	<time datetime="2020-12-17T03:29:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/17/Java%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/"># Java如何让自己写的代码生成帮助文档</a>
-    </h1>
-  
+                                    
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                                        <h1 id="Java如何让自己写的代码生成帮助文档"><a href="#Java如何让自己写的代码生成帮助文档" class="headerlink" title="Java如何让自己写的代码生成帮助文档"></a>Java如何让自己写的代码生成帮助文档</h1><ol>
+<li><p>对写的java代码加文档注释下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWord&#123;</span><br><span class="line">&#x2F;**</span><br><span class="line">*@author yang</span><br><span class="line">*@param args helloword</span><br><span class="line">*@since 1.0</span><br><span class="line">*&#x2F;</span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">System.out.println(&quot;helloword&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
 
+
+</li>
+</ol>
+<ol start="2">
+<li><p>对写好的代码进行编译（打开dos命令窗口）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac HelloWord.java</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果编译没什么问题的话然后运行一下代码看看能不能正常输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java HelloWord</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p>如果代码没有问题，那么最关键的一步，开始啦，生成帮助文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javadoc -encoding utf-8 -charset utf-8 HelloWord.java</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后大功告成，在你代码的里面就有帮助文档啦。</p>
+</li>
+</ol>
+
+                                            
+
+                                                
+                                                    <div class="page-reward">
+                                                        <a href="javascript:;" class="page-reward-btn tooltip-top">
+                                                            <div class="tooltip tooltip-east">
+                                                                <span class="tooltip-item">
+              赏
+            </span>
+                                                                <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                                                            </div>
+                                                            
+                                                                
+                                                                    <div class="reward-box-item">
+                                                                        <img class="reward-img" src="/assets/smewm.png">
+                                                                        <span class="reward-type">微信</span>
+                                                                    </div>
+                                                                    
+                                                    </div>
+                                                    </span>
+                                                    </span>
+                                                    </span>
+                </div>
+                </a>
+    </div>
+    
         </div>
-        <div class="clearfix"></div>
-    </header>
+        <div class="article-info article-info-index">
+            
+                    
+                        
+
+                            
+
+                                    
+                                        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
   </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://226396616.github.io/2020/12/17/Java%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+                                            
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
 </article>
+
+    
+<nav id="article-nav">
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/" class="archive-article-date">
-  	<time datetime="2020-12-16T10:57:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
+  
+    <a href="/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">1.java 计算0-100的奇数和以及1-100的偶数和 2.java输出1000内可以被5整除的数，每三个输出一行</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+        
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/">1.java 计算0-100的奇数和以及1-100的偶数和 2.java输出1000内可以被5整除的数，每三个输出一行</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3"><span class="toc-number">1.</span> <span class="toc-text">Java如何让自己写的代码生成帮助文档</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/16/hexo-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2020-12-16T08:08:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/16/hexo-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/">hexo 常见命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/16/java-%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97/" class="archive-article-date">
-  	<time datetime="2020-12-16T06:40:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/16/java-%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97/">java 中的标识符和关键字</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/23/MarkDown%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-11-23T13:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/23/MarkDown%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">MarkDown的使用练习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
+        
+    </div>
+</aside>
 
 
+                
+                    
+
+                                
+
+                                            
+
+                                                        
+
+                                                                
+                                                                            
                                             </div>
                                         </div>
                                     </div>
@@ -348,8 +408,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
