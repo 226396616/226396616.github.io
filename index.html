@@ -78,7 +78,7 @@
                     </nav>
                     <nav>
                         总文章数
-                        11
+                        12
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -173,6 +173,71 @@
                                             </div>
                                             <div id="js-content" class="content-ll">
                                                 
+  
+    <article id="post-pc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/22/pc/">pc</a>
+    </h1>
+  
+
+                    
+                            
+                                <a href="/2020/12/22/pc/" class="archive-article-date">
+  	<time datetime="2020-12-22T07:46:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
+</a>
+                                    
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                                        <h1 id="生产者消费者模型——管程法"><a href="#生产者消费者模型——管程法" class="headerlink" title="生产者消费者模型——管程法"></a>生产者消费者模型——管程法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">package Thread;</span><br><span class="line">&#x2F;&#x2F;测试：生产消费者模型---&gt;利用缓冲区解决：管程法</span><br><span class="line">public class PCThread &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SynContainer container &#x3D; new SynContainer();</span><br><span class="line">        new Product(container).start();</span><br><span class="line">        new Consumer(container).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;生产者</span><br><span class="line">class Product extends Thread&#123;</span><br><span class="line">SynContainer container;</span><br><span class="line">Product(SynContainer container)&#123;</span><br><span class="line">    this.container &#x3D; container;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;生产</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        for (int i &#x3D; 0; i &lt; 100; i++) &#123;</span><br><span class="line">            container.push(new Chicken(i));</span><br><span class="line">            System.out.println(&quot;生产了&quot;+i+&quot;只鸡&quot;);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;消费者</span><br><span class="line">class Consumer extends Thread&#123;</span><br><span class="line">SynContainer container;</span><br><span class="line">Consumer(SynContainer container)&#123;</span><br><span class="line">    this.container &#x3D; container;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;消费</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        for (int i &#x3D; 0; i &lt; 100; i++) &#123;</span><br><span class="line">            System.out.println(&quot;消费了---》&quot;+container.pop().id+&quot;只鸡&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;产品</span><br><span class="line">class Chicken&#123;</span><br><span class="line"></span><br><span class="line">    public int id;</span><br><span class="line"></span><br><span class="line">    public Chicken(int i) &#123;</span><br><span class="line">        this.id &#x3D; i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;缓冲区</span><br><span class="line">class SynContainer&#123;</span><br><span class="line">    &#x2F;&#x2F;需要一个容器大小</span><br><span class="line">    Chicken[] chickens &#x3D; new Chicken[10];</span><br><span class="line">    int count &#x3D; 0;</span><br><span class="line">    public synchronized  void push(Chicken chicken)&#123;</span><br><span class="line">        if (count&#x3D;&#x3D;chickens.length)&#123;</span><br><span class="line">            &#x2F;&#x2F;通知消费者消费</span><br><span class="line">            try &#123;</span><br><span class="line">                this.wait();</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;如果没有满，我们需要丢入产品</span><br><span class="line">        chickens[count] &#x3D; chicken;</span><br><span class="line">        count ++;</span><br><span class="line">        &#x2F;&#x2F;可以通知消费了</span><br><span class="line">        this.notifyAll();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    public synchronized  Chicken pop()&#123;</span><br><span class="line">        &#x2F;&#x2F;判断能否消费</span><br><span class="line">        if(count&#x3D;&#x3D;0)&#123;</span><br><span class="line">            &#x2F;&#x2F;等待生产者生产，消费者等待</span><br><span class="line">            try &#123;</span><br><span class="line">                this.wait();</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;如果可以消费</span><br><span class="line">        count--;</span><br><span class="line">        Chicken chicken &#x3D; chickens[count];</span><br><span class="line">        this.notifyAll();</span><br><span class="line">        return chicken;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+                                            
+
+                                                
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
+                        
+
+                            
+                                <p class="article-more-link">
+                                    <a class="article-more-a" href="/2020/12/22/pc/">
+                                        展开全文 >></a>
+                                </p>
+                                
+
+                                    
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+                
   
     <article id="post-synchronized-Lock" class="article article-type-post  article-index" itemscope itemprop="blogPost">
     <div class="article-inner">
@@ -844,186 +909,6 @@
                             
                                 <p class="article-more-link">
                                     <a class="article-more-a" href="/2020/12/16/hexo-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/">
-                                        展开全文 >></a>
-                                </p>
-                                
-
-                                    
-                                                <div class="clearfix"></div>
-        </div>
-        </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-                
-  
-    <article id="post-java-中的标识符和关键字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/16/java-%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97/">java 中的标识符和关键字</a>
-    </h1>
-  
-
-                    
-                            
-                                <a href="/2020/12/16/java-%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97/" class="archive-article-date">
-  	<time datetime="2020-12-16T06:40:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
-                                    
-            </header>
-            
-                <div class="article-entry" itemprop="articleBody">
-                    
-                                        <a id="more"></a>
-<h1 id="java-中的标识符和关键字"><a href="#java-中的标识符和关键字" class="headerlink" title="java 中的标识符和关键字"></a>java 中的标识符和关键字</h1><h5 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h5><p>理解：java 所有的组成部分都需要名字。类名、变量名以及方法名都被称为标识符。</p>
-<h5 id="java中的关键字如下表："><a href="#java中的关键字如下表：" class="headerlink" title="java中的关键字如下表："></a>java中的关键字如下表：</h5><table>
-<thead>
-<tr>
-<th>abstract</th>
-<th><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_22771739/article/details/85137082">assert</a></th>
-<th>boolean</th>
-<th>break</th>
-<th>byte</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>case</td>
-<td>catch</td>
-<td>char</td>
-<td>class</td>
-<td>const</td>
-</tr>
-<tr>
-<td>continue</td>
-<td>default</td>
-<td>do</td>
-<td>double</td>
-<td>else</td>
-</tr>
-<tr>
-<td>enum</td>
-<td>extends</td>
-<td>final</td>
-<td>filnally</td>
-<td>float</td>
-</tr>
-<tr>
-<td>instanceof</td>
-<td>int</td>
-<td>interface</td>
-<td>long</td>
-<td>native</td>
-</tr>
-<tr>
-<td>new</td>
-<td>package</td>
-<td>private</td>
-<td>protected</td>
-<td>public</td>
-</tr>
-<tr>
-<td>return</td>
-<td>strictfp</td>
-<td>short</td>
-<td>static</td>
-<td>super</td>
-</tr>
-<tr>
-<td>switch</td>
-<td>synchronized</td>
-<td>this</td>
-<td>throw</td>
-<td>throws</td>
-</tr>
-<tr>
-<td>transient</td>
-<td>try</td>
-<td>void</td>
-<td>volatile</td>
-<td>while</td>
-</tr>
-<tr>
-<td>for</td>
-<td>goto</td>
-<td>if</td>
-<td>implements</td>
-<td>import</td>
-</tr>
-</tbody></table>
-<blockquote>
-<ul>
-<li><p>assert 点击表格中连接即可查看详细讲解。(引用别人的博客以供学习使用。)</p>
-</li>
-<li><p>const是java中的预留关键字（java中预留关键字还有goto），现在没有作为关键字，以后的版本中可能扩展用，但现在常用于C,C++中。C中的const类似于final。</p>
-</li>
-<li><p>自Java2以来，Java语言增加了一个关键字strictfp，虽然这个关键字在大多数场合比较少用，但是还是有必要了解一下。</p>
-<p>strictfp 的意思是FP-strict，也就是说精确浮点的意思。在Java虚拟机进行浮点运算时，如果没有指定strictfp关键字时，Java的编译器以及运 行环境在对浮点运算的表达式是采取一种近似于我行我素的行为来完成这些操作，以致于得到的结果往往无法令你满意。而一旦使用了strictfp来声明一个 类、接口或者方法时，那么所声明的范围内Java的编译器以及运行环境会完全依照浮点规范IEEE-754来执行。因此如果你想让你的浮点运算更加精确， 而且不会因为不同的硬件平台所执行的结果不一致的话，那就请用关键字strictfp。</p>
-<p>你可以将一个类、接口以及方法声明为strictfp，但是不允许对接口中的方法以及构造函数声明strictfp关键字，例如下面的代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">合法的使用关键字<span class="keyword">strictfp</span></span><br><span class="line">    <span class="keyword">strictfp</span> <span class="class"><span class="keyword">interface</span> <span class="title">A</span></span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">strictfp</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">strictfp</span> <span class="keyword">void</span> <span class="title">fangfa</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>一旦使用了关键字strictfp来声明某个类、接口或者方法时，那么在这个关键字所声明的范围内所有浮点运算都是精确的，符合IEEE-754规范的。例如一个类被声明为strictfp，那么该类中所有的方法都是strictfp的。</p>
-</li>
-</ul>
-</blockquote>
-<hr>
-<hr>
-<h5 id="标识符的注意点："><a href="#标识符的注意点：" class="headerlink" title="标识符的注意点："></a>标识符的注意点：</h5><ul>
-<li><p>所有的标识符都应该以字母（A-Z或者a-z）、美元符号（$）、或者下划线（_）开始。</p>
-<p>比如说：（字符串变量名举例）：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String QIDreaan = <span class="string">&quot; &quot;</span>;</span><br><span class="line">String qidream = <span class="string">&quot; &quot;</span>;</span><br><span class="line">String $QIDream = <span class="string">&quot; &quot;</span>;</span><br><span class="line">String _QIDream = <span class="string">&quot; &quot;</span>;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p>首字符以后可以是字母（A-Z或者a-z）、美元符号（$）、或者下划线（_）或数字的任何字符组合。</p>
-<p>比如说：（字符串变量名举例）：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String _21312 = <span class="string">&quot; &quot;</span>;</span><br><span class="line">String $<span class="number">12321</span> = <span class="string">&quot; &quot;</span>;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li>不能使用关键字作为变量名或方法名</li>
-<li>标识符是大小写敏感的</li>
-<li>非法标识符举例：123abc、 -QIDream、#abc</li>
-<li>可以使用中文命名，但是不建议这样去使用，也不建议使用拼音，因为很low。</li>
-</ul>
-
-                                            
-
-                                                
-        </div>
-        <div class="article-info article-info-index">
-            
-                    
-                        
-
-                            
-                                <p class="article-more-link">
-                                    <a class="article-more-a" href="/2020/12/16/java-%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97/">
                                         展开全文 >></a>
                                 </p>
                                 
