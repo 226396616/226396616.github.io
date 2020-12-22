@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://226396616.github.io">
-  <title>Archives: 2020 | ypj博客</title>
+  <title>synchronized | ypj博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ypj博客">
-<meta property="og:url" content="https://226396616.github.io/archives/2020/index.html">
+  <meta name="description" content="线程同步 多个线程访问同一个对象叫并发。  线程同步就是：排队  队列和 锁 解决线程的安全性问题  synchronized,当一个线程获得对象的排它锁，独占资源,其他线程必须等待，使用够释放锁即可。  代码块锁可以锁任何地方。 12345678910111213141516171819202122232425262728293031323334353637package Thread;publ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="synchronized">
+<meta property="og:url" content="https://226396616.github.io/2020/12/22/synchronized/index.html">
 <meta property="og:site_name" content="ypj博客">
+<meta property="og:description" content="线程同步 多个线程访问同一个对象叫并发。  线程同步就是：排队  队列和 锁 解决线程的安全性问题  synchronized,当一个线程获得对象的排它锁，独占资源,其他线程必须等待，使用够释放锁即可。  代码块锁可以锁任何地方。 12345678910111213141516171819202122232425262728293031323334353637package Thread;publ">
 <meta property="og:locale">
+<meta property="article:published_time" content="2020-12-22T06:04:34.000Z">
+<meta property="article:modified_time" content="2020-12-22T06:04:44.337Z">
 <meta property="article:author" content="yangpengju">
 <meta name="twitter:card" content="summary">
   
@@ -172,267 +176,209 @@
                                                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
                                             </div>
                                             <div id="js-content" class="content-ll">
-                                                
+                                                <article id="post-synchronized" class="article article-type-post " itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
   
+    <h1 class="article-title" itemprop="name">
+      synchronized
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/22/synchronized/" class="archive-article-date">
+
+                    
+
+
+
+
+
+                        阅读数: 次
+
+
+                        
+                            
+                                <a href="/2020/12/22/synchronized/" class="archive-article-date">
   	<time datetime="2020-12-22T06:04:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/22/synchronized/">synchronized</a>
-    </h1>
-  
+                                    
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                                        <h1 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h1><ol>
+<li><p>多个线程访问同一个对象叫并发。</p>
+</li>
+<li><p>线程同步就是：排队</p>
+</li>
+<li><p>队列和 锁 解决线程的安全性问题</p>
+</li>
+<li><p>synchronized,当一个线程获得对象的排它锁，独占资源,其他线程必须等待，使用够释放锁即可。</p>
+</li>
+<li><p>代码块锁可以锁任何地方。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">package Thread;</span><br><span class="line"></span><br><span class="line">public class UnsafyBuyTickets &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        BuyTicket buyTicket &#x3D; new BuyTicket();</span><br><span class="line">        new Thread(buyTicket,&quot;明&quot;).start();</span><br><span class="line">        new Thread(buyTicket,&quot;刚&quot;).start();</span><br><span class="line">        new Thread(buyTicket,&quot;老板&quot;).start();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class BuyTicket implements Runnable&#123;</span><br><span class="line">    private int tickets &#x3D; 10;</span><br><span class="line">    boolean falg &#x3D; true;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">   &#x2F;&#x2F;买票</span><br><span class="line">        while(falg)&#123;</span><br><span class="line">            buy();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    private synchronized void buy()&#123;</span><br><span class="line">        &#x2F;&#x2F;判断是否有票</span><br><span class="line">        if (tickets&lt;&#x3D;0)&#123;</span><br><span class="line">            falg &#x3D; false;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;模拟代码延时</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(100);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Thread.currentThread().getName()+&quot;拿到&quot;+tickets--+&quot;张票&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">package Thread;</span><br><span class="line"></span><br><span class="line">public class UnsafyBank &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Account account &#x3D; new Account(2000000,&quot;彩礼&quot;);</span><br><span class="line">        Drawing you &#x3D; new Drawing(account,1000000,&quot;自己&quot;);</span><br><span class="line">        Drawing wife &#x3D; new Drawing(account,2000000,&quot;妻子&quot;);</span><br><span class="line">        you.start();</span><br><span class="line">        wife.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Account &#123;</span><br><span class="line">  int money;</span><br><span class="line">  String name;</span><br><span class="line">  public Account(int money,String name)&#123;</span><br><span class="line">      this.money &#x3D; money;</span><br><span class="line">      this.name &#x3D; name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;模拟：银行取款</span><br><span class="line">class Drawing extends Thread&#123;</span><br><span class="line">    Account account;&#x2F;&#x2F;账户</span><br><span class="line">    int drawingMoney;&#x2F;&#x2F;取了多少钱</span><br><span class="line">    String name;</span><br><span class="line">    &#x2F;&#x2F;现在手里有多少钱</span><br><span class="line">    int nowMoney;</span><br><span class="line">    public Drawing(Account account,int drawingMoney,String name)&#123;</span><br><span class="line">        super(name);</span><br><span class="line">        this.account &#x3D; account;</span><br><span class="line">        this.drawingMoney &#x3D; drawingMoney;</span><br><span class="line"></span><br><span class="line">        this.nowMoney &#x3D; nowMoney;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public  void run() &#123;</span><br><span class="line">        &#x2F;&#x2F;锁的对对象是变化的量，需要增删改操作的量。</span><br><span class="line">        synchronized (account)&#123;</span><br><span class="line">        if(account.money-drawingMoney&lt;0)&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+&quot;钱不够，取不了&quot;);</span><br><span class="line">        return;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;模拟延时</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(100);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        account.money &#x3D; account.money-drawingMoney;</span><br><span class="line">        nowMoney &#x3D; nowMoney+drawingMoney;</span><br><span class="line">        System.out.println(account.name+&quot;余额为&quot;+account.money);</span><br><span class="line">        System.out.println(this.getName()+&quot;手里的钱：&quot;+nowMoney);</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package Thread;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class UnSafyList &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        List&lt;String&gt; list &#x3D; new ArrayList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">            for (int i &#x3D; 0; i &lt; 10000; i++) &#123;</span><br><span class="line"></span><br><span class="line">                new Thread(() -&gt; &#123;</span><br><span class="line">                    synchronized (list) &#123;</span><br><span class="line">                    list.add(Thread.currentThread().getName());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;).start();</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(3000);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(list.size());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+
+                                            
+
+                                                
+                                                    <div class="page-reward">
+                                                        <a href="javascript:;" class="page-reward-btn tooltip-top">
+                                                            <div class="tooltip tooltip-east">
+                                                                <span class="tooltip-item">
+              赏
+            </span>
+                                                                <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                                                            </div>
+                                                            
+                                                                
+                                                                    <div class="reward-box-item">
+                                                                        <img class="reward-img" src="/assets/smewm.png">
+                                                                        <span class="reward-type">微信</span>
+                                                                    </div>
+                                                                    
+                                                    </div>
+                                                    </span>
+                                                    </span>
+                                                    </span>
+                </div>
+                </a>
+    </div>
+    
         </div>
-        <div class="clearfix"></div>
-    </header>
+        <div class="article-info article-info-index">
+            
+                    
+                        
+
+                            
+
+                                    
+                                        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
   </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://226396616.github.io/2020/12/22/synchronized/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+                                            
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
 </article>
+
+    
+<nav id="article-nav">
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/22/DaemonThread/" class="archive-article-date">
-  	<time datetime="2020-12-22T01:37:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
-</a>
+  
+    <a href="/2020/12/22/DaemonThread/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DaemonThread</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+        
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/22/DaemonThread/">DaemonThread</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="toc-number">1.</span> <span class="toc-text">线程同步</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/22/PriorityThread/" class="archive-article-date">
-  	<time datetime="2020-12-22T01:06:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/22/PriorityThread/">PriorityThread</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/21/Thread/" class="archive-article-date">
-  	<time datetime="2020-12-21T15:42:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/21/Thread/">线程状态</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/17/Java%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/" class="archive-article-date">
-  	<time datetime="2020-12-17T03:29:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/17/Java%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/"># Java如何让自己写的代码生成帮助文档</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/" class="archive-article-date">
-  	<time datetime="2020-12-16T10:57:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/">1.java 计算0-100的奇数和以及1-100的偶数和 2.java输出1000内可以被5整除的数，每三个输出一行</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/16/hexo-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2020-12-16T08:08:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/16/hexo-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/">hexo 常见命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/16/java-%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97/" class="archive-article-date">
-  	<time datetime="2020-12-16T06:40:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/16/java-%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97/">java 中的标识符和关键字</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/23/MarkDown%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-11-23T13:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/23/MarkDown%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">MarkDown的使用练习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
+        
+    </div>
+</aside>
 
 
+                
+                    
+
+                                
+
+                                            
+
+                                                        
+
+                                                                
+                                                                            
                                             </div>
                                         </div>
                                     </div>
@@ -456,8 +402,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

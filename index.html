@@ -78,7 +78,7 @@
                     </nav>
                     <nav>
                         总文章数
-                        8
+                        9
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -173,6 +173,89 @@
                                             </div>
                                             <div id="js-content" class="content-ll">
                                                 
+  
+    <article id="post-synchronized" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/22/synchronized/">synchronized</a>
+    </h1>
+  
+
+                    
+                            
+                                <a href="/2020/12/22/synchronized/" class="archive-article-date">
+  	<time datetime="2020-12-22T06:04:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
+</a>
+                                    
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                                        <h1 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h1><ol>
+<li><p>多个线程访问同一个对象叫并发。</p>
+</li>
+<li><p>线程同步就是：排队</p>
+</li>
+<li><p>队列和 锁 解决线程的安全性问题</p>
+</li>
+<li><p>synchronized,当一个线程获得对象的排它锁，独占资源,其他线程必须等待，使用够释放锁即可。</p>
+</li>
+<li><p>代码块锁可以锁任何地方。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">package Thread;</span><br><span class="line"></span><br><span class="line">public class UnsafyBuyTickets &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        BuyTicket buyTicket &#x3D; new BuyTicket();</span><br><span class="line">        new Thread(buyTicket,&quot;明&quot;).start();</span><br><span class="line">        new Thread(buyTicket,&quot;刚&quot;).start();</span><br><span class="line">        new Thread(buyTicket,&quot;老板&quot;).start();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class BuyTicket implements Runnable&#123;</span><br><span class="line">    private int tickets &#x3D; 10;</span><br><span class="line">    boolean falg &#x3D; true;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">   &#x2F;&#x2F;买票</span><br><span class="line">        while(falg)&#123;</span><br><span class="line">            buy();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    private synchronized void buy()&#123;</span><br><span class="line">        &#x2F;&#x2F;判断是否有票</span><br><span class="line">        if (tickets&lt;&#x3D;0)&#123;</span><br><span class="line">            falg &#x3D; false;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;模拟代码延时</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(100);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Thread.currentThread().getName()+&quot;拿到&quot;+tickets--+&quot;张票&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">package Thread;</span><br><span class="line"></span><br><span class="line">public class UnsafyBank &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Account account &#x3D; new Account(2000000,&quot;彩礼&quot;);</span><br><span class="line">        Drawing you &#x3D; new Drawing(account,1000000,&quot;自己&quot;);</span><br><span class="line">        Drawing wife &#x3D; new Drawing(account,2000000,&quot;妻子&quot;);</span><br><span class="line">        you.start();</span><br><span class="line">        wife.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Account &#123;</span><br><span class="line">  int money;</span><br><span class="line">  String name;</span><br><span class="line">  public Account(int money,String name)&#123;</span><br><span class="line">      this.money &#x3D; money;</span><br><span class="line">      this.name &#x3D; name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;模拟：银行取款</span><br><span class="line">class Drawing extends Thread&#123;</span><br><span class="line">    Account account;&#x2F;&#x2F;账户</span><br><span class="line">    int drawingMoney;&#x2F;&#x2F;取了多少钱</span><br><span class="line">    String name;</span><br><span class="line">    &#x2F;&#x2F;现在手里有多少钱</span><br><span class="line">    int nowMoney;</span><br><span class="line">    public Drawing(Account account,int drawingMoney,String name)&#123;</span><br><span class="line">        super(name);</span><br><span class="line">        this.account &#x3D; account;</span><br><span class="line">        this.drawingMoney &#x3D; drawingMoney;</span><br><span class="line"></span><br><span class="line">        this.nowMoney &#x3D; nowMoney;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public  void run() &#123;</span><br><span class="line">        &#x2F;&#x2F;锁的对对象是变化的量，需要增删改操作的量。</span><br><span class="line">        synchronized (account)&#123;</span><br><span class="line">        if(account.money-drawingMoney&lt;0)&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+&quot;钱不够，取不了&quot;);</span><br><span class="line">        return;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;模拟延时</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(100);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        account.money &#x3D; account.money-drawingMoney;</span><br><span class="line">        nowMoney &#x3D; nowMoney+drawingMoney;</span><br><span class="line">        System.out.println(account.name+&quot;余额为&quot;+account.money);</span><br><span class="line">        System.out.println(this.getName()+&quot;手里的钱：&quot;+nowMoney);</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package Thread;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class UnSafyList &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        List&lt;String&gt; list &#x3D; new ArrayList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">            for (int i &#x3D; 0; i &lt; 10000; i++) &#123;</span><br><span class="line"></span><br><span class="line">                new Thread(() -&gt; &#123;</span><br><span class="line">                    synchronized (list) &#123;</span><br><span class="line">                    list.add(Thread.currentThread().getName());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;).start();</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(3000);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(list.size());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+
+                                            
+
+                                                
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
+                        
+
+                            
+                                <p class="article-more-link">
+                                    <a class="article-more-a" href="/2020/12/22/synchronized/">
+                                        展开全文 >></a>
+                                </p>
+                                
+
+                                    
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+                
   
     <article id="post-DaemonThread" class="article article-type-post  article-index" itemscope itemprop="blogPost">
     <div class="article-inner">
