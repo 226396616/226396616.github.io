@@ -78,7 +78,7 @@
                     </nav>
                     <nav>
                         总文章数
-                        12
+                        13
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -173,6 +173,71 @@
                                             </div>
                                             <div id="js-content" class="content-ll">
                                                 
+  
+    <article id="post-pc2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/22/pc2/">pc2</a>
+    </h1>
+  
+
+                    
+                            
+                                <a href="/2020/12/22/pc2/" class="archive-article-date">
+  	<time datetime="2020-12-22T08:08:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
+</a>
+                                    
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                                        <h1 id="生产者消费者模型——标志法"><a href="#生产者消费者模型——标志法" class="headerlink" title="生产者消费者模型——标志法"></a>生产者消费者模型——标志法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">package Thread;</span><br><span class="line">&#x2F;&#x2F;测试生产者消费者问题2：信号灯发，标志位解决</span><br><span class="line">public class PC2Thread &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        TV tv &#x3D; new TV();</span><br><span class="line">        new Player(tv).start();</span><br><span class="line">        new Watcher(tv).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;生产者--》演员</span><br><span class="line">class Player extends  Thread&#123;</span><br><span class="line">TV tv;</span><br><span class="line">public Player(TV tv)&#123;</span><br><span class="line">    this.tv &#x3D; tv;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">       for (int i &#x3D;0;i&lt;20;i++)&#123;</span><br><span class="line">    if (i%2&#x3D;&#x3D;0)&#123;</span><br><span class="line">        this.tv.play(&quot;演员表演中&quot;);</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        this.tv.play(&quot;插播广告&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;消费者———》观众</span><br><span class="line">class Watcher extends Thread&#123;</span><br><span class="line">    TV tv;</span><br><span class="line">    public Watcher(TV tv)&#123;</span><br><span class="line">        this.tv &#x3D; tv;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        for (int i &#x3D; 0; i &lt; 20; i++) &#123;</span><br><span class="line">            tv.watch();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;产品——》节目</span><br><span class="line">class TV&#123;</span><br><span class="line">    &#x2F;&#x2F;演员表演，观众等待 T</span><br><span class="line">    &#x2F;&#x2F;观众观看，演员等待 F</span><br><span class="line">    String voice;&#x2F;&#x2F;表演的节目</span><br><span class="line">    boolean flag &#x3D; true;</span><br><span class="line">    &#x2F;&#x2F;表演</span><br><span class="line">    public synchronized void play(String voice)&#123;</span><br><span class="line">        if (!flag)&#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                this.wait();</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;演员表演了：&quot;+voice);</span><br><span class="line">        &#x2F;&#x2F;通知观众观看</span><br><span class="line">        this.notifyAll();</span><br><span class="line">        this.voice &#x3D; voice;</span><br><span class="line">        this.flag &#x3D; !this.flag;</span><br><span class="line">    &#125;</span><br><span class="line">public synchronized  void watch()&#123;</span><br><span class="line">        if(flag)&#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                this.wait();</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    System.out.println(&quot;观看了：&quot;+voice);</span><br><span class="line">        &#x2F;&#x2F;通知演员表演</span><br><span class="line">    this.notifyAll();</span><br><span class="line">    this.flag &#x3D; !this.flag;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+                                            
+
+                                                
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
+                        
+
+                            
+                                <p class="article-more-link">
+                                    <a class="article-more-a" href="/2020/12/22/pc2/">
+                                        展开全文 >></a>
+                                </p>
+                                
+
+                                    
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+                
   
     <article id="post-pc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
     <div class="article-inner">
@@ -839,76 +904,6 @@
                             
                                 <p class="article-more-link">
                                     <a class="article-more-a" href="/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/">
-                                        展开全文 >></a>
-                                </p>
-                                
-
-                                    
-                                                <div class="clearfix"></div>
-        </div>
-        </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-                
-  
-    <article id="post-hexo-常见命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/16/hexo-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/">hexo 常见命令</a>
-    </h1>
-  
-
-                    
-                            
-                                <a href="/2020/12/16/hexo-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2020-12-16T08:08:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
-                                    
-            </header>
-            
-                <div class="article-entry" itemprop="articleBody">
-                    
-                                        <h1 id="hexo常用命令总结"><a href="#hexo常用命令总结" class="headerlink" title="hexo常用命令总结"></a>hexo常用命令总结</h1><ol>
-<li>常见命令</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;新建文章的题目名字&quot; &#x2F;&#x2F;新建一篇文章</span><br><span class="line">hexo g &#x2F;&#x2F;生成静态页面至public目录</span><br><span class="line">hexo d &#x2F;&#x2F;部署到github上</span><br><span class="line">hexo h &#x2F;&#x2F;查看帮助</span><br><span class="line">hexo v &#x2F;&#x2F;查看hexo 的版本号</span><br><span class="line">hexo cl &#x2F;&#x2F;清理public 的内容</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-                                            
-
-                                                
-        </div>
-        <div class="article-info article-info-index">
-            
-                    
-                        
-
-                            
-                                <p class="article-more-link">
-                                    <a class="article-more-a" href="/2020/12/16/hexo-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/">
                                         展开全文 >></a>
                                 </p>
                                 
