@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://226396616.github.io">
-  <title>1.java 计算0-100的奇数和以及1-100的偶数和 2.java输出1000内可以被5整除的数，每三个输出一行 | ypj博客</title>
+  <title>PriorityThread | ypj博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java 计算0-100的奇数和以及1-100的偶数和 第一种方法 12345678910111213141516public class Demo01 &amp;#123;    public static void main(String[] args) &amp;#123;        int  oddSum &#x3D; 0;&#x2F;&#x2F;创建变量奇数和，初始化值为0        int evenSum &#x3D; 0;&#x2F;&#x2F;创建">
+  <meta name="description" content="线程优先级 线程优先级 Java提供一个线程调度器来监控程序中启动后进入就绪状态的所有线程，线程调度器按照优先级决定应该调用哪个线程来执行  线程的优先级用数字表示，范围1~10 Thread.MIN_PRIORITY &#x3D; 1; Thread.MAX_PRIMORITY &#x3D; 10; Thread.NORM_PRIMORITY &#x3D; 5;  使用getPriority().setPriority(in">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1.java 计算0-100的奇数和以及1-100的偶数和 2.java输出1000内可以被5整除的数，每三个输出一行">
-<meta property="og:url" content="https://226396616.github.io/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/index.html">
+<meta property="og:title" content="PriorityThread">
+<meta property="og:url" content="https://226396616.github.io/2020/12/22/PriorityThread/index.html">
 <meta property="og:site_name" content="ypj博客">
-<meta property="og:description" content="java 计算0-100的奇数和以及1-100的偶数和 第一种方法 12345678910111213141516public class Demo01 &amp;#123;    public static void main(String[] args) &amp;#123;        int  oddSum &#x3D; 0;&#x2F;&#x2F;创建变量奇数和，初始化值为0        int evenSum &#x3D; 0;&#x2F;&#x2F;创建">
+<meta property="og:description" content="线程优先级 线程优先级 Java提供一个线程调度器来监控程序中启动后进入就绪状态的所有线程，线程调度器按照优先级决定应该调用哪个线程来执行  线程的优先级用数字表示，范围1~10 Thread.MIN_PRIORITY &#x3D; 1; Thread.MAX_PRIMORITY &#x3D; 10; Thread.NORM_PRIMORITY &#x3D; 5;  使用getPriority().setPriority(in">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-12-16T10:57:25.000Z">
-<meta property="article:modified_time" content="2020-12-16T10:57:50.878Z">
+<meta property="article:published_time" content="2020-12-22T01:06:44.000Z">
+<meta property="article:modified_time" content="2020-12-22T01:06:53.311Z">
 <meta property="article:author" content="yangpengju">
 <meta name="twitter:card" content="summary">
   
@@ -176,14 +176,14 @@
                                                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
                                             </div>
                                             <div id="js-content" class="content-ll">
-                                                <article id="post-1-java-计算0-100的奇数和以及1-100的偶数和-2-java输出1000内可以被5整除的数，每三个输出一行" class="article article-type-post " itemscope itemprop="blogPost">
+                                                <article id="post-PriorityThread" class="article article-type-post " itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
   
     <h1 class="article-title" itemprop="name">
-      1.java 计算0-100的奇数和以及1-100的偶数和 2.java输出1000内可以被5整除的数，每三个输出一行
+      PriorityThread
     </h1>
   
 
@@ -198,27 +198,34 @@
 
                         
                             
-                                <a href="/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/" class="archive-article-date">
-  	<time datetime="2020-12-16T10:57:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
+                                <a href="/2020/12/22/PriorityThread/" class="archive-article-date">
+  	<time datetime="2020-12-22T01:06:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
 </a>
                                     
             </header>
             
                 <div class="article-entry" itemprop="articleBody">
                     
-                                        <h1 id="java-计算0-100的奇数和以及1-100的偶数和"><a href="#java-计算0-100的奇数和以及1-100的偶数和" class="headerlink" title="java 计算0-100的奇数和以及1-100的偶数和"></a>java 计算0-100的奇数和以及1-100的偶数和</h1><ul>
-<li><p>第一种方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>  oddSum = <span class="number">0</span>;<span class="comment">//创建变量奇数和，初始化值为0</span></span><br><span class="line">        <span class="keyword">int</span> evenSum = <span class="number">0</span>;<span class="comment">//创建变量偶数和，初始化值为0</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                evenSum = i+evenSum;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                oddSum = i+oddSum;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">                                 &#125;</span><br><span class="line">         System.out.println(<span class="string">&quot;0-100的奇数和为：&quot;</span>+oddSum+<span class="string">&quot;\n&quot;</span>+<span class="string">&quot;0-100的偶数和为：&quot;</span>+evenSum);</span><br><span class="line">                                             &#125;</span><br><span class="line">                    &#125;</span><br></pre></td></tr></table></figure>
+                                        <h1 id="线程优先级"><a href="#线程优先级" class="headerlink" title="线程优先级"></a>线程优先级</h1><ol>
+<li><p>线程优先级</p>
+<p>Java提供一个线程调度器来监控程序中启动后进入就绪状态的所有线程，线程调度器按照优先级决定应该调用哪个线程来执行</p>
 </li>
-<li><p>第二种方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;       </span><br><span class="line">        <span class="keyword">int</span>  oddSum = <span class="number">0</span>;<span class="comment">//创建变量奇数和，初始化值为0</span></span><br><span class="line">        <span class="keyword">int</span> evenSum = <span class="number">0</span>;<span class="comment">//创建变量偶数和，初始化值为0</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">100</span>;i += <span class="number">2</span>)&#123;</span><br><span class="line">            evenSum = evenSum + i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=<span class="number">100</span>;i +=<span class="number">2</span> )&#123;</span><br><span class="line">            oddSum = oddSum +i;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;0-100的奇数和为：&quot;</span>+oddSum+<span class="string">&quot;\n&quot;</span>+<span class="string">&quot;0-100的偶数和为：&quot;</span>+evenSum);</span><br><span class="line">                                            &#125;</span><br><span class="line">                    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="java输出1000内可以被5整除的数，每三个输出一行"><a href="#java输出1000内可以被5整除的数，每三个输出一行" class="headerlink" title="java输出1000内可以被5整除的数，每三个输出一行"></a>java输出1000内可以被5整除的数，每三个输出一行</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;<span class="comment">//用来记能被5整除的数的个数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1000</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (i%<span class="number">5</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.print(i+<span class="string">&quot; &quot;</span>);</span><br><span class="line">                count ++;</span><br><span class="line">            <span class="keyword">if</span> (count%<span class="number">3</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println();</span><br><span class="line">            &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>线程的优先级用数字表示，范围1~10</p>
+<p>Thread.MIN_PRIORITY = 1;</p>
+<p>Thread.MAX_PRIMORITY = 10;</p>
+<p>Thread.NORM_PRIMORITY = 5;</p>
+</li>
+<li><p>使用getPriority().setPriority(int xxx)来获取线程优先级</p>
+</li>
+<li><p>优先级的设定建议在start()调度前</p>
+</li>
+<li><p>优先级低是意味着获得调度的概率低，并不是优先级低就不会被调用了，这都是看cpu的调度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">package Thread;</span><br><span class="line"></span><br><span class="line">public class PriorityThread extends Thread &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName() + &quot;----&gt;&quot; + Thread.currentThread().getPriority());</span><br><span class="line">        MyPrioryity myPrioryity &#x3D; new MyPrioryity();</span><br><span class="line">        Thread t1 &#x3D; new Thread(myPrioryity,&quot;线程1&quot;);</span><br><span class="line">        Thread t2 &#x3D; new Thread(myPrioryity,&quot;线程2&quot;);</span><br><span class="line">        Thread t3 &#x3D; new Thread(myPrioryity,&quot;线程3&quot;);</span><br><span class="line">        Thread t4 &#x3D; new Thread(myPrioryity,&quot;线程4&quot;);</span><br><span class="line">        Thread t5 &#x3D; new Thread(myPrioryity,&quot;线程5&quot;);</span><br><span class="line">        Thread t6 &#x3D; new Thread(myPrioryity,&quot;线程6&quot;);</span><br><span class="line">        t1.start();</span><br><span class="line">        t2.setPriority(1);</span><br><span class="line">        t2.start();</span><br><span class="line">        t3.setPriority(4);</span><br><span class="line">        t3.start();</span><br><span class="line">        t4.setPriority(Thread.MAX_PRIORITY);&#x2F;&#x2F;Max_PRIORITY &#x3D; 10</span><br><span class="line">        t4.start();</span><br><span class="line">        t5.setPriority(7);</span><br><span class="line">        t5.start();</span><br><span class="line">        t6.setPriority(8);</span><br><span class="line">        t6.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyPrioryity implements Runnable &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName() + &quot;----&gt;&quot; + Thread.currentThread().getPriority());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 </li>
-</ul>
+</ol>
 
                                             
 
@@ -308,7 +315,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://226396616.github.io/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://226396616.github.io/2020/12/22/PriorityThread/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -322,18 +329,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/12/17/Java%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          # Java如何让自己写的代码生成帮助文档
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/12/16/hexo-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo 常见命令</div>
+    <a href="/2020/12/21/Thread/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">线程状态</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -360,7 +358,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C"><span class="toc-number">1.</span> <span class="toc-text">java 计算0-100的奇数和以及1-100的偶数和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C"><span class="toc-number">2.</span> <span class="toc-text">java输出1000内可以被5整除的数，每三个输出一行</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">1.</span> <span class="toc-text">线程优先级</span></a></li></ol>
                     </div>
                 </span>
             </div>

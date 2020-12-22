@@ -78,7 +78,7 @@
                     </nav>
                     <nav>
                         总文章数
-                        6
+                        7
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -173,6 +173,89 @@
                                             </div>
                                             <div id="js-content" class="content-ll">
                                                 
+  
+    <article id="post-PriorityThread" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/22/PriorityThread/">PriorityThread</a>
+    </h1>
+  
+
+                    
+                            
+                                <a href="/2020/12/22/PriorityThread/" class="archive-article-date">
+  	<time datetime="2020-12-22T01:06:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
+</a>
+                                    
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                                        <h1 id="线程优先级"><a href="#线程优先级" class="headerlink" title="线程优先级"></a>线程优先级</h1><ol>
+<li><p>线程优先级</p>
+<p>Java提供一个线程调度器来监控程序中启动后进入就绪状态的所有线程，线程调度器按照优先级决定应该调用哪个线程来执行</p>
+</li>
+<li><p>线程的优先级用数字表示，范围1~10</p>
+<p>Thread.MIN_PRIORITY = 1;</p>
+<p>Thread.MAX_PRIMORITY = 10;</p>
+<p>Thread.NORM_PRIMORITY = 5;</p>
+</li>
+<li><p>使用getPriority().setPriority(int xxx)来获取线程优先级</p>
+</li>
+<li><p>优先级的设定建议在start()调度前</p>
+</li>
+<li><p>优先级低是意味着获得调度的概率低，并不是优先级低就不会被调用了，这都是看cpu的调度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">package Thread;</span><br><span class="line"></span><br><span class="line">public class PriorityThread extends Thread &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName() + &quot;----&gt;&quot; + Thread.currentThread().getPriority());</span><br><span class="line">        MyPrioryity myPrioryity &#x3D; new MyPrioryity();</span><br><span class="line">        Thread t1 &#x3D; new Thread(myPrioryity,&quot;线程1&quot;);</span><br><span class="line">        Thread t2 &#x3D; new Thread(myPrioryity,&quot;线程2&quot;);</span><br><span class="line">        Thread t3 &#x3D; new Thread(myPrioryity,&quot;线程3&quot;);</span><br><span class="line">        Thread t4 &#x3D; new Thread(myPrioryity,&quot;线程4&quot;);</span><br><span class="line">        Thread t5 &#x3D; new Thread(myPrioryity,&quot;线程5&quot;);</span><br><span class="line">        Thread t6 &#x3D; new Thread(myPrioryity,&quot;线程6&quot;);</span><br><span class="line">        t1.start();</span><br><span class="line">        t2.setPriority(1);</span><br><span class="line">        t2.start();</span><br><span class="line">        t3.setPriority(4);</span><br><span class="line">        t3.start();</span><br><span class="line">        t4.setPriority(Thread.MAX_PRIORITY);&#x2F;&#x2F;Max_PRIORITY &#x3D; 10</span><br><span class="line">        t4.start();</span><br><span class="line">        t5.setPriority(7);</span><br><span class="line">        t5.start();</span><br><span class="line">        t6.setPriority(8);</span><br><span class="line">        t6.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyPrioryity implements Runnable &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName() + &quot;----&gt;&quot; + Thread.currentThread().getPriority());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+
+                                            
+
+                                                
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
+                        
+
+                            
+                                <p class="article-more-link">
+                                    <a class="article-more-a" href="/2020/12/22/PriorityThread/">
+                                        展开全文 >></a>
+                                </p>
+                                
+
+                                    
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+                
   
     <article id="post-Thread" class="article article-type-post  article-index" itemscope itemprop="blogPost">
     <div class="article-inner">
