@@ -78,7 +78,7 @@
                     </nav>
                     <nav>
                         总文章数
-                        13
+                        14
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -173,6 +173,84 @@
                                             </div>
                                             <div id="js-content" class="content-ll">
                                                 
+  
+    <article id="post-poolThread" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/22/poolThread/">poolThread</a>
+    </h1>
+  
+
+                    
+                            
+                                <a href="/2020/12/22/poolThread/" class="archive-article-date">
+  	<time datetime="2020-12-22T08:23:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
+</a>
+                                    
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                                        <h1 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h1><ol>
+<li><p>JDK5.0起提供了线程池相关api：ExecutorService 和Executors</p>
+</li>
+<li><p>ExecutorService :真正的线程池接口。常见子类ThreadPoodExecutor</p>
+<p>void execute(Runnable command):执行任务/命令，没有返回值，一般用来执行Runnable</p>
+<p><T>Future<T>submit(Callable<T> task):执行任务，有返回值，一般用来执行Callable</p>
+<p>void shutdown():关闭连接池</p>
+</li>
+<li><p>Executors:工具类、线程池的工厂类，用于创建并返回不同类型的线程池。</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Thread;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutorService;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executors;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">POOLThread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建线程池</span></span><br><span class="line">        <span class="comment">//newFixedThreadPool参数线程池的大小</span></span><br><span class="line">        ExecutorService service = Executors.newFixedThreadPool(<span class="number">10</span>);</span><br><span class="line">        <span class="comment">//执行</span></span><br><span class="line">        service.execute(<span class="keyword">new</span> MyThread());</span><br><span class="line">        service.execute(<span class="keyword">new</span> MyThread());</span><br><span class="line">        service.execute(<span class="keyword">new</span> MyThread());</span><br><span class="line">        service.execute(<span class="keyword">new</span> MyThread());</span><br><span class="line">        <span class="comment">//关闭连接</span></span><br><span class="line">        service.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+                                            
+
+                                                
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
+                        
+
+                            
+                                <p class="article-more-link">
+                                    <a class="article-more-a" href="/2020/12/22/poolThread/">
+                                        展开全文 >></a>
+                                </p>
+                                
+
+                                    
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+                
   
     <article id="post-pc2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
     <div class="article-inner">
@@ -828,82 +906,6 @@
                             
                                 <p class="article-more-link">
                                     <a class="article-more-a" href="/2020/12/17/Java%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/">
-                                        展开全文 >></a>
-                                </p>
-                                
-
-                                    
-                                                <div class="clearfix"></div>
-        </div>
-        </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-                
-  
-    <article id="post-1-java-计算0-100的奇数和以及1-100的偶数和-2-java输出1000内可以被5整除的数，每三个输出一行" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/">1.java 计算0-100的奇数和以及1-100的偶数和 2.java输出1000内可以被5整除的数，每三个输出一行</a>
-    </h1>
-  
-
-                    
-                            
-                                <a href="/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/" class="archive-article-date">
-  	<time datetime="2020-12-16T10:57:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
-                                    
-            </header>
-            
-                <div class="article-entry" itemprop="articleBody">
-                    
-                                        <h1 id="java-计算0-100的奇数和以及1-100的偶数和"><a href="#java-计算0-100的奇数和以及1-100的偶数和" class="headerlink" title="java 计算0-100的奇数和以及1-100的偶数和"></a>java 计算0-100的奇数和以及1-100的偶数和</h1><ul>
-<li><p>第一种方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>  oddSum = <span class="number">0</span>;<span class="comment">//创建变量奇数和，初始化值为0</span></span><br><span class="line">        <span class="keyword">int</span> evenSum = <span class="number">0</span>;<span class="comment">//创建变量偶数和，初始化值为0</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                evenSum = i+evenSum;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                oddSum = i+oddSum;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">                                 &#125;</span><br><span class="line">         System.out.println(<span class="string">&quot;0-100的奇数和为：&quot;</span>+oddSum+<span class="string">&quot;\n&quot;</span>+<span class="string">&quot;0-100的偶数和为：&quot;</span>+evenSum);</span><br><span class="line">                                             &#125;</span><br><span class="line">                    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>第二种方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;       </span><br><span class="line">        <span class="keyword">int</span>  oddSum = <span class="number">0</span>;<span class="comment">//创建变量奇数和，初始化值为0</span></span><br><span class="line">        <span class="keyword">int</span> evenSum = <span class="number">0</span>;<span class="comment">//创建变量偶数和，初始化值为0</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">100</span>;i += <span class="number">2</span>)&#123;</span><br><span class="line">            evenSum = evenSum + i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=<span class="number">100</span>;i +=<span class="number">2</span> )&#123;</span><br><span class="line">            oddSum = oddSum +i;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;0-100的奇数和为：&quot;</span>+oddSum+<span class="string">&quot;\n&quot;</span>+<span class="string">&quot;0-100的偶数和为：&quot;</span>+evenSum);</span><br><span class="line">                                            &#125;</span><br><span class="line">                    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="java输出1000内可以被5整除的数，每三个输出一行"><a href="#java输出1000内可以被5整除的数，每三个输出一行" class="headerlink" title="java输出1000内可以被5整除的数，每三个输出一行"></a>java输出1000内可以被5整除的数，每三个输出一行</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;<span class="comment">//用来记能被5整除的数的个数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1000</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (i%<span class="number">5</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.print(i+<span class="string">&quot; &quot;</span>);</span><br><span class="line">                count ++;</span><br><span class="line">            <span class="keyword">if</span> (count%<span class="number">3</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println();</span><br><span class="line">            &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-
-                                            
-
-                                                
-        </div>
-        <div class="article-info article-info-index">
-            
-                    
-                        
-
-                            
-                                <p class="article-more-link">
-                                    <a class="article-more-a" href="/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/">
                                         展开全文 >></a>
                                 </p>
                                 
