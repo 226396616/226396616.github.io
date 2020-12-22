@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://226396616.github.io">
-  <title>ypj博客</title>
+  <title>DaemonThread | ypj博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ypj博客">
-<meta property="og:url" content="https://226396616.github.io/index.html">
+  <meta name="description" content="守护线程 线程分为用户线程和守护线程  守护线程一旦设定一直都在，而用户线程会停止 1234567891011121314151617181920212223242526272829303132333435package Thread;public class DaemonThread &amp;#123;    public static void main(String[] args) &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DaemonThread">
+<meta property="og:url" content="https://226396616.github.io/2020/12/22/DaemonThread/index.html">
 <meta property="og:site_name" content="ypj博客">
+<meta property="og:description" content="守护线程 线程分为用户线程和守护线程  守护线程一旦设定一直都在，而用户线程会停止 1234567891011121314151617181920212223242526272829303132333435package Thread;public class DaemonThread &amp;#123;    public static void main(String[] args) &amp;#123;">
 <meta property="og:locale">
+<meta property="article:published_time" content="2020-12-22T01:37:00.000Z">
+<meta property="article:modified_time" content="2020-12-22T01:37:15.535Z">
 <meta property="article:author" content="yangpengju">
 <meta name="twitter:card" content="summary">
   
@@ -172,20 +176,27 @@
                                                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
                                             </div>
                                             <div id="js-content" class="content-ll">
-                                                
-  
-    <article id="post-DaemonThread" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+                                                <article id="post-DaemonThread" class="article article-type-post " itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/22/DaemonThread/">DaemonThread</a>
+    <h1 class="article-title" itemprop="name">
+      DaemonThread
     </h1>
   
 
                     
+
+
+
+
+
+                        阅读数: 次
+
+
+                        
                             
                                 <a href="/2020/12/22/DaemonThread/" class="archive-article-date">
   	<time datetime="2020-12-22T01:37:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
@@ -209,6 +220,37 @@
                                             
 
                                                 
+                                                    <div class="page-reward">
+                                                        <a href="javascript:;" class="page-reward-btn tooltip-top">
+                                                            <div class="tooltip tooltip-east">
+                                                                <span class="tooltip-item">
+              赏
+            </span>
+                                                                <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                                                            </div>
+                                                            
+                                                                
+                                                                    <div class="reward-box-item">
+                                                                        <img class="reward-img" src="/assets/smewm.png">
+                                                                        <span class="reward-type">微信</span>
+                                                                    </div>
+                                                                    
+                                                    </div>
+                                                    </span>
+                                                    </span>
+                                                    </span>
+                </div>
+                </a>
+    </div>
+    
         </div>
         <div class="article-info article-info-index">
             
@@ -216,18 +258,76 @@
                         
 
                             
-                                <p class="article-more-link">
-                                    <a class="article-more-a" href="/2020/12/22/DaemonThread/">
-                                        展开全文 >></a>
-                                </p>
-                                
 
                                     
+                                        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://226396616.github.io/2020/12/22/DaemonThread/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+                                            
                                                 <div class="clearfix"></div>
         </div>
         </div>
 </article>
 
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/12/22/PriorityThread/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PriorityThread</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+        
             <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
@@ -241,674 +341,34 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">守护线程</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
 
                 
-  
-    <article id="post-PriorityThread" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/22/PriorityThread/">PriorityThread</a>
-    </h1>
-  
-
                     
-                            
-                                <a href="/2020/12/22/PriorityThread/" class="archive-article-date">
-  	<time datetime="2020-12-22T01:06:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
-</a>
-                                    
-            </header>
-            
-                <div class="article-entry" itemprop="articleBody">
-                    
-                                        <h1 id="线程优先级"><a href="#线程优先级" class="headerlink" title="线程优先级"></a>线程优先级</h1><ol>
-<li><p>线程优先级</p>
-<p>Java提供一个线程调度器来监控程序中启动后进入就绪状态的所有线程，线程调度器按照优先级决定应该调用哪个线程来执行</p>
-</li>
-<li><p>线程的优先级用数字表示，范围1~10</p>
-<p>Thread.MIN_PRIORITY = 1;</p>
-<p>Thread.MAX_PRIMORITY = 10;</p>
-<p>Thread.NORM_PRIMORITY = 5;</p>
-</li>
-<li><p>使用getPriority().setPriority(int xxx)来获取线程优先级</p>
-</li>
-<li><p>优先级的设定建议在start()调度前</p>
-</li>
-<li><p>优先级低是意味着获得调度的概率低，并不是优先级低就不会被调用了，这都是看cpu的调度。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">package Thread;</span><br><span class="line"></span><br><span class="line">public class PriorityThread extends Thread &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName() + &quot;----&gt;&quot; + Thread.currentThread().getPriority());</span><br><span class="line">        MyPrioryity myPrioryity &#x3D; new MyPrioryity();</span><br><span class="line">        Thread t1 &#x3D; new Thread(myPrioryity,&quot;线程1&quot;);</span><br><span class="line">        Thread t2 &#x3D; new Thread(myPrioryity,&quot;线程2&quot;);</span><br><span class="line">        Thread t3 &#x3D; new Thread(myPrioryity,&quot;线程3&quot;);</span><br><span class="line">        Thread t4 &#x3D; new Thread(myPrioryity,&quot;线程4&quot;);</span><br><span class="line">        Thread t5 &#x3D; new Thread(myPrioryity,&quot;线程5&quot;);</span><br><span class="line">        Thread t6 &#x3D; new Thread(myPrioryity,&quot;线程6&quot;);</span><br><span class="line">        t1.start();</span><br><span class="line">        t2.setPriority(1);</span><br><span class="line">        t2.start();</span><br><span class="line">        t3.setPriority(4);</span><br><span class="line">        t3.start();</span><br><span class="line">        t4.setPriority(Thread.MAX_PRIORITY);&#x2F;&#x2F;Max_PRIORITY &#x3D; 10</span><br><span class="line">        t4.start();</span><br><span class="line">        t5.setPriority(7);</span><br><span class="line">        t5.start();</span><br><span class="line">        t6.setPriority(8);</span><br><span class="line">        t6.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyPrioryity implements Runnable &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName() + &quot;----&gt;&quot; + Thread.currentThread().getPriority());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-</li>
-</ol>
+                                
 
                                             
 
-                                                
-        </div>
-        <div class="article-info article-info-index">
-            
-                    
-                        
+                                                        
 
-                            
-                                <p class="article-more-link">
-                                    <a class="article-more-a" href="/2020/12/22/PriorityThread/">
-                                        展开全文 >></a>
-                                </p>
-                                
-
-                                    
-                                                <div class="clearfix"></div>
-        </div>
-        </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-                
-  
-    <article id="post-Thread" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/21/Thread/">线程状态</a>
-    </h1>
-  
-
-                    
-                            
-                                <a href="/2020/12/21/Thread/" class="archive-article-date">
-  	<time datetime="2020-12-21T15:42:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-21</time>
-</a>
-                                    
-            </header>
-            
-                <div class="article-entry" itemprop="articleBody">
-                    
-                                        <h1 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h1><p>new——&gt;就绪状态——&gt;阻塞状态——&gt;运行状态——&gt;dead</p>
-<ol>
-<li><p>线程一旦创建就进入到新生状态</p>
-</li>
-<li><p>当调用start（）方法，线程立即进入就绪状态，但不意味着立即调度执行</p>
-</li>
-<li><p>当调用sleep，wait或同步锁定时，线程进入阻塞状态，就是代码不往下执行，阻塞事件解除后，重新进入就绪状态，等待cpu调度执行。</p>
-</li>
-<li><p>进入运行状态，线程才真正执行线程的代码块</p>
-</li>
-<li><p><strong>线程终端或者结束，一旦进入死亡状态，就不能再次启动。</strong></p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class TheadTest &#123;</span><br><span class="line">    public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">        Thread thread &#x3D; new Thread(()-&gt;&#123;&#x2F;&#x2F;创建一个线程，并且模拟网络延迟</span><br><span class="line">            for (int i &#x3D; 0; i &lt; 5; i++) &#123;</span><br><span class="line">                try &#123;</span><br><span class="line">                    Thread.sleep(1000);</span><br><span class="line">                &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(&quot;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&quot;);</span><br><span class="line">        &#125;);</span><br><span class="line">        &#x2F;&#x2F;观察线程刚创建出来的状态</span><br><span class="line">        Thread.State state &#x3D; thread.getState();</span><br><span class="line">        System.out.println(state);</span><br><span class="line">        &#x2F;&#x2F;观察线程启动后的状态</span><br><span class="line">        thread.start();&#x2F;&#x2F;启动线程</span><br><span class="line">        state &#x3D; thread.getState();</span><br><span class="line">         System.out.println(state);&#x2F;&#x2F;Run</span><br><span class="line">         while(state!&#x3D;Thread.State.TERMINATED)&#123;&#x2F;&#x2F;只要线程不终止，就一直输出状态</span><br><span class="line">         Thread.sleep(100);</span><br><span class="line">         state &#x3D; thread.getState();</span><br><span class="line">         System.out.println(state);</span><br><span class="line">         </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#x2F;&#x2F;死亡以后的线程就不能再启动了</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-                                            
-
-                                                
-        </div>
-        <div class="article-info article-info-index">
-            
-                    
-                        
-
-                            
-                                <p class="article-more-link">
-                                    <a class="article-more-a" href="/2020/12/21/Thread/">
-                                        展开全文 >></a>
-                                </p>
-                                
-
-                                    
-                                                <div class="clearfix"></div>
-        </div>
-        </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-                
-  
-    <article id="post-Java如何让自己写的代码生成帮助文档" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/17/Java%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/"># Java如何让自己写的代码生成帮助文档</a>
-    </h1>
-  
-
-                    
-                            
-                                <a href="/2020/12/17/Java%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/" class="archive-article-date">
-  	<time datetime="2020-12-17T03:29:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-17</time>
-</a>
-                                    
-            </header>
-            
-                <div class="article-entry" itemprop="articleBody">
-                    
-                                        <h1 id="Java如何让自己写的代码生成帮助文档"><a href="#Java如何让自己写的代码生成帮助文档" class="headerlink" title="Java如何让自己写的代码生成帮助文档"></a>Java如何让自己写的代码生成帮助文档</h1><ol>
-<li><p>对写的java代码加文档注释下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWord&#123;</span><br><span class="line">&#x2F;**</span><br><span class="line">*@author yang</span><br><span class="line">*@param args helloword</span><br><span class="line">*@since 1.0</span><br><span class="line">*&#x2F;</span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">System.out.println(&quot;helloword&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="2">
-<li><p>对写好的代码进行编译（打开dos命令窗口）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac HelloWord.java</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果编译没什么问题的话然后运行一下代码看看能不能正常输出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java HelloWord</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="4">
-<li><p>如果代码没有问题，那么最关键的一步，开始啦，生成帮助文档</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javadoc -encoding utf-8 -charset utf-8 HelloWord.java</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>最后大功告成，在你代码的里面就有帮助文档啦。</p>
-</li>
-</ol>
-
-                                            
-
-                                                
-        </div>
-        <div class="article-info article-info-index">
-            
-                    
-                        
-
-                            
-                                <p class="article-more-link">
-                                    <a class="article-more-a" href="/2020/12/17/Java%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/">
-                                        展开全文 >></a>
-                                </p>
-                                
-
-                                    
-                                                <div class="clearfix"></div>
-        </div>
-        </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-                
-  
-    <article id="post-1-java-计算0-100的奇数和以及1-100的偶数和-2-java输出1000内可以被5整除的数，每三个输出一行" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/">1.java 计算0-100的奇数和以及1-100的偶数和 2.java输出1000内可以被5整除的数，每三个输出一行</a>
-    </h1>
-  
-
-                    
-                            
-                                <a href="/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/" class="archive-article-date">
-  	<time datetime="2020-12-16T10:57:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
-                                    
-            </header>
-            
-                <div class="article-entry" itemprop="articleBody">
-                    
-                                        <h1 id="java-计算0-100的奇数和以及1-100的偶数和"><a href="#java-计算0-100的奇数和以及1-100的偶数和" class="headerlink" title="java 计算0-100的奇数和以及1-100的偶数和"></a>java 计算0-100的奇数和以及1-100的偶数和</h1><ul>
-<li><p>第一种方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>  oddSum = <span class="number">0</span>;<span class="comment">//创建变量奇数和，初始化值为0</span></span><br><span class="line">        <span class="keyword">int</span> evenSum = <span class="number">0</span>;<span class="comment">//创建变量偶数和，初始化值为0</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                evenSum = i+evenSum;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                oddSum = i+oddSum;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">                                 &#125;</span><br><span class="line">         System.out.println(<span class="string">&quot;0-100的奇数和为：&quot;</span>+oddSum+<span class="string">&quot;\n&quot;</span>+<span class="string">&quot;0-100的偶数和为：&quot;</span>+evenSum);</span><br><span class="line">                                             &#125;</span><br><span class="line">                    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>第二种方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;       </span><br><span class="line">        <span class="keyword">int</span>  oddSum = <span class="number">0</span>;<span class="comment">//创建变量奇数和，初始化值为0</span></span><br><span class="line">        <span class="keyword">int</span> evenSum = <span class="number">0</span>;<span class="comment">//创建变量偶数和，初始化值为0</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">100</span>;i += <span class="number">2</span>)&#123;</span><br><span class="line">            evenSum = evenSum + i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=<span class="number">100</span>;i +=<span class="number">2</span> )&#123;</span><br><span class="line">            oddSum = oddSum +i;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;0-100的奇数和为：&quot;</span>+oddSum+<span class="string">&quot;\n&quot;</span>+<span class="string">&quot;0-100的偶数和为：&quot;</span>+evenSum);</span><br><span class="line">                                            &#125;</span><br><span class="line">                    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="java输出1000内可以被5整除的数，每三个输出一行"><a href="#java输出1000内可以被5整除的数，每三个输出一行" class="headerlink" title="java输出1000内可以被5整除的数，每三个输出一行"></a>java输出1000内可以被5整除的数，每三个输出一行</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;<span class="comment">//用来记能被5整除的数的个数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1000</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (i%<span class="number">5</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.print(i+<span class="string">&quot; &quot;</span>);</span><br><span class="line">                count ++;</span><br><span class="line">            <span class="keyword">if</span> (count%<span class="number">3</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println();</span><br><span class="line">            &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-
-                                            
-
-                                                
-        </div>
-        <div class="article-info article-info-index">
-            
-                    
-                        
-
-                            
-                                <p class="article-more-link">
-                                    <a class="article-more-a" href="/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/">
-                                        展开全文 >></a>
-                                </p>
-                                
-
-                                    
-                                                <div class="clearfix"></div>
-        </div>
-        </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-                
-  
-    <article id="post-hexo-常见命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/16/hexo-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/">hexo 常见命令</a>
-    </h1>
-  
-
-                    
-                            
-                                <a href="/2020/12/16/hexo-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2020-12-16T08:08:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
-                                    
-            </header>
-            
-                <div class="article-entry" itemprop="articleBody">
-                    
-                                        <h1 id="hexo常用命令总结"><a href="#hexo常用命令总结" class="headerlink" title="hexo常用命令总结"></a>hexo常用命令总结</h1><ol>
-<li>常见命令</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;新建文章的题目名字&quot; &#x2F;&#x2F;新建一篇文章</span><br><span class="line">hexo g &#x2F;&#x2F;生成静态页面至public目录</span><br><span class="line">hexo d &#x2F;&#x2F;部署到github上</span><br><span class="line">hexo h &#x2F;&#x2F;查看帮助</span><br><span class="line">hexo v &#x2F;&#x2F;查看hexo 的版本号</span><br><span class="line">hexo cl &#x2F;&#x2F;清理public 的内容</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-                                            
-
-                                                
-        </div>
-        <div class="article-info article-info-index">
-            
-                    
-                        
-
-                            
-                                <p class="article-more-link">
-                                    <a class="article-more-a" href="/2020/12/16/hexo-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/">
-                                        展开全文 >></a>
-                                </p>
-                                
-
-                                    
-                                                <div class="clearfix"></div>
-        </div>
-        </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-                
-  
-    <article id="post-java-中的标识符和关键字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/16/java-%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97/">java 中的标识符和关键字</a>
-    </h1>
-  
-
-                    
-                            
-                                <a href="/2020/12/16/java-%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97/" class="archive-article-date">
-  	<time datetime="2020-12-16T06:40:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
-                                    
-            </header>
-            
-                <div class="article-entry" itemprop="articleBody">
-                    
-                                        <a id="more"></a>
-<h1 id="java-中的标识符和关键字"><a href="#java-中的标识符和关键字" class="headerlink" title="java 中的标识符和关键字"></a>java 中的标识符和关键字</h1><h5 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h5><p>理解：java 所有的组成部分都需要名字。类名、变量名以及方法名都被称为标识符。</p>
-<h5 id="java中的关键字如下表："><a href="#java中的关键字如下表：" class="headerlink" title="java中的关键字如下表："></a>java中的关键字如下表：</h5><table>
-<thead>
-<tr>
-<th>abstract</th>
-<th><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_22771739/article/details/85137082">assert</a></th>
-<th>boolean</th>
-<th>break</th>
-<th>byte</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>case</td>
-<td>catch</td>
-<td>char</td>
-<td>class</td>
-<td>const</td>
-</tr>
-<tr>
-<td>continue</td>
-<td>default</td>
-<td>do</td>
-<td>double</td>
-<td>else</td>
-</tr>
-<tr>
-<td>enum</td>
-<td>extends</td>
-<td>final</td>
-<td>filnally</td>
-<td>float</td>
-</tr>
-<tr>
-<td>instanceof</td>
-<td>int</td>
-<td>interface</td>
-<td>long</td>
-<td>native</td>
-</tr>
-<tr>
-<td>new</td>
-<td>package</td>
-<td>private</td>
-<td>protected</td>
-<td>public</td>
-</tr>
-<tr>
-<td>return</td>
-<td>strictfp</td>
-<td>short</td>
-<td>static</td>
-<td>super</td>
-</tr>
-<tr>
-<td>switch</td>
-<td>synchronized</td>
-<td>this</td>
-<td>throw</td>
-<td>throws</td>
-</tr>
-<tr>
-<td>transient</td>
-<td>try</td>
-<td>void</td>
-<td>volatile</td>
-<td>while</td>
-</tr>
-<tr>
-<td>for</td>
-<td>goto</td>
-<td>if</td>
-<td>implements</td>
-<td>import</td>
-</tr>
-</tbody></table>
-<blockquote>
-<ul>
-<li><p>assert 点击表格中连接即可查看详细讲解。(引用别人的博客以供学习使用。)</p>
-</li>
-<li><p>const是java中的预留关键字（java中预留关键字还有goto），现在没有作为关键字，以后的版本中可能扩展用，但现在常用于C,C++中。C中的const类似于final。</p>
-</li>
-<li><p>自Java2以来，Java语言增加了一个关键字strictfp，虽然这个关键字在大多数场合比较少用，但是还是有必要了解一下。</p>
-<p>strictfp 的意思是FP-strict，也就是说精确浮点的意思。在Java虚拟机进行浮点运算时，如果没有指定strictfp关键字时，Java的编译器以及运 行环境在对浮点运算的表达式是采取一种近似于我行我素的行为来完成这些操作，以致于得到的结果往往无法令你满意。而一旦使用了strictfp来声明一个 类、接口或者方法时，那么所声明的范围内Java的编译器以及运行环境会完全依照浮点规范IEEE-754来执行。因此如果你想让你的浮点运算更加精确， 而且不会因为不同的硬件平台所执行的结果不一致的话，那就请用关键字strictfp。</p>
-<p>你可以将一个类、接口以及方法声明为strictfp，但是不允许对接口中的方法以及构造函数声明strictfp关键字，例如下面的代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">合法的使用关键字<span class="keyword">strictfp</span></span><br><span class="line">    <span class="keyword">strictfp</span> <span class="class"><span class="keyword">interface</span> <span class="title">A</span></span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">strictfp</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">strictfp</span> <span class="keyword">void</span> <span class="title">fangfa</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>一旦使用了关键字strictfp来声明某个类、接口或者方法时，那么在这个关键字所声明的范围内所有浮点运算都是精确的，符合IEEE-754规范的。例如一个类被声明为strictfp，那么该类中所有的方法都是strictfp的。</p>
-</li>
-</ul>
-</blockquote>
-<hr>
-<hr>
-<h5 id="标识符的注意点："><a href="#标识符的注意点：" class="headerlink" title="标识符的注意点："></a>标识符的注意点：</h5><ul>
-<li><p>所有的标识符都应该以字母（A-Z或者a-z）、美元符号（$）、或者下划线（_）开始。</p>
-<p>比如说：（字符串变量名举例）：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String QIDreaan = <span class="string">&quot; &quot;</span>;</span><br><span class="line">String qidream = <span class="string">&quot; &quot;</span>;</span><br><span class="line">String $QIDream = <span class="string">&quot; &quot;</span>;</span><br><span class="line">String _QIDream = <span class="string">&quot; &quot;</span>;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p>首字符以后可以是字母（A-Z或者a-z）、美元符号（$）、或者下划线（_）或数字的任何字符组合。</p>
-<p>比如说：（字符串变量名举例）：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String _21312 = <span class="string">&quot; &quot;</span>;</span><br><span class="line">String $<span class="number">12321</span> = <span class="string">&quot; &quot;</span>;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li>不能使用关键字作为变量名或方法名</li>
-<li>标识符是大小写敏感的</li>
-<li>非法标识符举例：123abc、 -QIDream、#abc</li>
-<li>可以使用中文命名，但是不建议这样去使用，也不建议使用拼音，因为很low。</li>
-</ul>
-
-                                            
-
-                                                
-        </div>
-        <div class="article-info article-info-index">
-            
-                    
-                        
-
-                            
-                                <p class="article-more-link">
-                                    <a class="article-more-a" href="/2020/12/16/java-%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97/">
-                                        展开全文 >></a>
-                                </p>
-                                
-
-                                    
-                                                <div class="clearfix"></div>
-        </div>
-        </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-                
-  
-    <article id="post-MarkDown的简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/23/MarkDown%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">MarkDown的使用练习</a>
-    </h1>
-  
-
-                    
-                            
-                                <a href="/2020/11/23/MarkDown%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-11-23T13:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-23</time>
-</a>
-                                    
-            </header>
-            
-                <div class="article-entry" itemprop="articleBody">
-                    
-                                         <a id="more"></a>
-<h1 id="MarkDown的使用练习"><a href="#MarkDown的使用练习" class="headerlink" title="MarkDown的使用练习"></a>MarkDown的使用练习</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>标题 </p>
-<h2 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h2><p>这是第一个段落内容</p>
-<p>这是第二个段落</p>
-<h2 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h2><blockquote>
-<p>这是一段引用段落，将会被高亮显示</p>
-</blockquote>
-<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p>[百度]（<a target="_blank" rel="noopener" href="https://www.baidu.com/index.php?tn=monline_3_dg%EF%BC%89">https://www.baidu.com/index.php?tn=monline_3_dg）</a></p>
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1606149756728&di=890eb463536ab544b8b89c1fca5873a0&imgtype=0&src=http://a2.att.hudong.com/27/81/01200000194677136358818023076.jpg" alt="图片alt"> </p>
-<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><ul>
-<li>无序列表</li>
-<li>无序列表</li>
-<li>无序列表<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2></li>
-</ul>
-<ol>
-<li>有序列表</li>
-<li>有序列表</li>
-<li>有序列表<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2></li>
-</ol>
-<hr>
-
-                                            
-
-                                                
-        </div>
-        <div class="article-info article-info-index">
-            
-                    
-                        
-
-                            
-                                <p class="article-more-link">
-                                    <a class="article-more-a" href="/2020/11/23/MarkDown%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
-                                        展开全文 >></a>
-                                </p>
-                                
-
-                                    
-                                                <div class="clearfix"></div>
-        </div>
-        </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-                
-  
-  
-
-
+                                                                
+                                                                            
                                             </div>
                                         </div>
                                     </div>
@@ -931,8 +391,8 @@
                             <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
