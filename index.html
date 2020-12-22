@@ -78,7 +78,7 @@
                     </nav>
                     <nav>
                         总文章数
-                        9
+                        11
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -173,6 +173,153 @@
                                             </div>
                                             <div id="js-content" class="content-ll">
                                                 
+  
+    <article id="post-synchronized-Lock" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/22/synchronized-Lock/">synchronized&amp;&amp;Lock</a>
+    </h1>
+  
+
+                    
+                            
+                                <a href="/2020/12/22/synchronized-Lock/" class="archive-article-date">
+  	<time datetime="2020-12-22T07:04:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
+</a>
+                                    
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                                        <h1 id="synchronized-与Lock的比较"><a href="#synchronized-与Lock的比较" class="headerlink" title="synchronized 与Lock的比较"></a>synchronized 与Lock的比较</h1><p>Lock是显示锁（手动开启和关闭锁，别忘记关闭锁）synchronized 是隐式锁，除了作用域自动释放</p>
+<p>Lock只有代码块锁，synchronized有代码快锁和方法锁</p>
+<p>使用Lock锁，jvm将花费较少的时间来调度线程，性能更好。并且具有更好的扩展性（提供更多的子类）</p>
+<p>优先使用顺序：</p>
+<p>Lock&gt;同步代码块（已经进入了方法体，分配了相应的资源）&gt;同步方法（在方法体之外）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">package Thread;</span><br><span class="line"></span><br><span class="line">import java.util.concurrent.locks.ReentrantLock;</span><br><span class="line"></span><br><span class="line">public class LockThread &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Tickets t1 &#x3D; new Tickets();</span><br><span class="line">       new Thread(t1).start();</span><br><span class="line">        new Thread(t1).start();</span><br><span class="line">        new Thread(t1).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Tickets implements Runnable&#123;</span><br><span class="line">int tickets &#x3D; 10;</span><br><span class="line">&#x2F;&#x2F;定义lock锁</span><br><span class="line"> private final   ReentrantLock lock &#x3D; new ReentrantLock();</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            try&#123;</span><br><span class="line"></span><br><span class="line">            lock.lock();</span><br><span class="line">            if (tickets&gt;0)&#123;</span><br><span class="line">                try &#123;</span><br><span class="line">                    Thread.sleep(1000);</span><br><span class="line">                &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(tickets--);</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;&#125;finally &#123;</span><br><span class="line">                lock.unlock();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+                                            
+
+                                                
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
+                        
+
+                            
+                                <p class="article-more-link">
+                                    <a class="article-more-a" href="/2020/12/22/synchronized-Lock/">
+                                        展开全文 >></a>
+                                </p>
+                                
+
+                                    
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+                
+  
+    <article id="post-DeadLock" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/22/DeadLock/">DeadLock</a>
+    </h1>
+  
+
+                    
+                            
+                                <a href="/2020/12/22/DeadLock/" class="archive-article-date">
+  	<time datetime="2020-12-22T07:03:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
+</a>
+                                    
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                                        <h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><p>产生死锁的四个必要条件</p>
+<ol>
+<li><p>互斥条件：一个资源每次只能被一个进程使用。</p>
+</li>
+<li><p>请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放。</p>
+</li>
+<li><p>不剥夺条件：进程已获得的资源，在末使用完之前，不能强行剥夺。</p>
+</li>
+<li><p>循环等待条件：若进程之间形成一种头尾详解的循环等待资源的关系。</p>
+<p>我们只要想办法破其中的一个或多个条件就可以避免死锁发生。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">package Thread;</span><br><span class="line">&#x2F;&#x2F;死锁：多个线程互相抱着对方需要的资源，然后形成僵持</span><br><span class="line">public class DeadLock &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Makeup g1 &#x3D; new Makeup(0,&quot;灰姑娘&quot;);</span><br><span class="line">        Makeup g2 &#x3D; new Makeup(1,&quot;白雪公主&quot;);</span><br><span class="line">        g1.start();</span><br><span class="line">        g2.start();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;口红</span><br><span class="line">class Lipstick&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;镜子</span><br><span class="line">class Mirror&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">class Makeup extends Thread&#123;</span><br><span class="line">    static Lipstick lipstick &#x3D; new Lipstick();</span><br><span class="line">    static Mirror mirror &#x3D; new Mirror();</span><br><span class="line">    int choice;</span><br><span class="line">    String girlName;</span><br><span class="line">  Makeup(int choice,String girlName)&#123;</span><br><span class="line">      this.choice &#x3D; choice;</span><br><span class="line">      this.girlName &#x3D; girlName;</span><br><span class="line">  &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">      &#x2F;&#x2F;化妆</span><br><span class="line">        makeup();</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;化妆，互相持有对方的锁，就是需要拿到对方的资源</span><br><span class="line">    private void makeup()&#123;</span><br><span class="line">      if (choice&#x3D;&#x3D;0)&#123;</span><br><span class="line">          synchronized (lipstick) &#123;</span><br><span class="line">              System.out.println(this.girlName + &quot;获得口红的锁&quot;);</span><br><span class="line">              try &#123;</span><br><span class="line">                  Thread.sleep(1000);</span><br><span class="line"></span><br><span class="line">              &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                  e.printStackTrace();</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          synchronized (mirror)&#123;</span><br><span class="line">              System.out.println(this.girlName+&quot;获得镜子的锁&quot;);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">          synchronized (mirror)&#123;</span><br><span class="line">              System.out.println(this.girlName+&quot;获得镜子的锁&quot;);</span><br><span class="line">              try &#123;</span><br><span class="line">                  Thread.sleep(2000);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">              &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                  e.printStackTrace();</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          synchronized (lipstick)&#123;</span><br><span class="line">              System.out.println(this.girlName+&quot;获得口红的锁&quot;);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+                                            
+
+                                                
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
+                        
+
+                            
+                                <p class="article-more-link">
+                                    <a class="article-more-a" href="/2020/12/22/DeadLock/">
+                                        展开全文 >></a>
+                                </p>
+                                
+
+                                    
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+                
   
     <article id="post-synchronized" class="article article-type-post  article-index" itemscope itemprop="blogPost">
     <div class="article-inner">
@@ -906,89 +1053,10 @@
 
                 
   
-    <article id="post-MarkDown的简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/23/MarkDown%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">MarkDown的使用练习</a>
-    </h1>
-  
-
-                    
-                            
-                                <a href="/2020/11/23/MarkDown%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-11-23T13:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-23</time>
-</a>
-                                    
-            </header>
-            
-                <div class="article-entry" itemprop="articleBody">
-                    
-                                         <a id="more"></a>
-<h1 id="MarkDown的使用练习"><a href="#MarkDown的使用练习" class="headerlink" title="MarkDown的使用练习"></a>MarkDown的使用练习</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>标题 </p>
-<h2 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h2><p>这是第一个段落内容</p>
-<p>这是第二个段落</p>
-<h2 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h2><blockquote>
-<p>这是一段引用段落，将会被高亮显示</p>
-</blockquote>
-<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p>[百度]（<a target="_blank" rel="noopener" href="https://www.baidu.com/index.php?tn=monline_3_dg%EF%BC%89">https://www.baidu.com/index.php?tn=monline_3_dg）</a></p>
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1606149756728&di=890eb463536ab544b8b89c1fca5873a0&imgtype=0&src=http://a2.att.hudong.com/27/81/01200000194677136358818023076.jpg" alt="图片alt"> </p>
-<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><ul>
-<li>无序列表</li>
-<li>无序列表</li>
-<li>无序列表<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2></li>
-</ul>
-<ol>
-<li>有序列表</li>
-<li>有序列表</li>
-<li>有序列表<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2></li>
-</ol>
-<hr>
-
-                                            
-
-                                                
-        </div>
-        <div class="article-info article-info-index">
-            
-                    
-                        
-
-                            
-                                <p class="article-more-link">
-                                    <a class="article-more-a" href="/2020/11/23/MarkDown%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
-                                        展开全文 >></a>
-                                </p>
-                                
-
-                                    
-                                                <div class="clearfix"></div>
-        </div>
-        </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-                
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
