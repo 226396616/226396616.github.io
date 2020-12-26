@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://226396616.github.io">
-  <title>Archives: 2020 | ypj博客</title>
+  <title>tcp/ip | ypj博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ypj博客">
-<meta property="og:url" content="https://226396616.github.io/archives/2020/page/2/index.html">
+  <meta name="description" content="网络通信的要素如何实现通信？ 通信双方的地址：  ip  端口号  192.168.16,124:5900   规则：网络通信的协议 TCP&#x2F;IP参考模型：  小结：  网络编程中主要两个主要的问题  如何准确定位到网路上的一台或者多台主机  找到主机后如何进行通信    网络 编程中的要素  IP和端口号 ip 网络通信协议 udp,tcp   万物皆对象   IPIP地址：InetAddres">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tcp&#x2F;ip">
+<meta property="og:url" content="https://226396616.github.io/2020/12/26/tcp-ip/index.html">
 <meta property="og:site_name" content="ypj博客">
+<meta property="og:description" content="网络通信的要素如何实现通信？ 通信双方的地址：  ip  端口号  192.168.16,124:5900   规则：网络通信的协议 TCP&#x2F;IP参考模型：  小结：  网络编程中主要两个主要的问题  如何准确定位到网路上的一台或者多台主机  找到主机后如何进行通信    网络 编程中的要素  IP和端口号 ip 网络通信协议 udp,tcp   万物皆对象   IPIP地址：InetAddres">
 <meta property="og:locale">
+<meta property="og:image" content="https://img-blog.csdn.net/20180316155619885?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzE2MDkzMzIz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="article:published_time" content="2020-12-26T06:21:54.000Z">
+<meta property="article:modified_time" content="2020-12-26T06:22:07.103Z">
 <meta property="article:author" content="yangpengju">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180316155619885?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzE2MDkzMzIz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
   
     <link rel="alternative" href="/atom.xml" title="ypj博客" type="application/atom+xml">
   
@@ -172,190 +178,437 @@
                                                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
                                             </div>
                                             <div id="js-content" class="content-ll">
+                                                <article id="post-tcp-ip" class="article article-type-post " itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 class="article-title" itemprop="name">
+      tcp/ip
+    </h1>
+  
+
+                    
+
+
+
+
+
+                        阅读数: 次
+
+
+                        
+                            
+                                <a href="/2020/12/26/tcp-ip/" class="archive-article-date">
+  	<time datetime="2020-12-26T06:21:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-26</time>
+</a>
+                                    
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                                        <h1 id="网络通信的要素"><a href="#网络通信的要素" class="headerlink" title="网络通信的要素"></a>网络通信的要素</h1><p>如何实现通信？</p>
+<p>通信双方的地址：</p>
+<ul>
+<li><p>ip</p>
+</li>
+<li><p>端口号</p>
+</li>
+<li><p>192.168.16,124:5900</p>
+</li>
+</ul>
+<p><strong>规则：网络通信的协议</strong></p>
+<p>TCP/IP参考模型：</p>
+<p><img src="https://img-blog.csdn.net/20180316155619885?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzE2MDkzMzIz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="1575180473779"></p>
+<p>小结：</p>
+<ol>
+<li><p>网络编程中主要两个主要的问题</p>
+<ul>
+<li><p>如何准确定位到网路上的一台或者多台主机</p>
+</li>
+<li><p>找到主机后如何进行通信</p>
+</li>
+</ul>
+</li>
+<li><p>网络 编程中的要素</p>
+<ul>
+<li>IP和端口号 ip</li>
+<li>网络通信协议 udp,tcp</li>
+</ul>
+</li>
+<li><p>万物皆对象</p>
+</li>
+</ol>
+<h1 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h1><p>IP地址：InetAddress</p>
+<ul>
+<li><p>唯一定位一台网络上计算机</p>
+</li>
+<li><p>127.0.0.1：本机localhost</p>
+</li>
+<li><p>ip地址的分类</p>
+</li>
+<li><p>ipv4/ipv6</p>
+<ul>
+<li><p>–IPV4–:127.0.0.1 , 4个字节组成。 0~255， 42亿；30亿在北美，亚洲4亿。2011年就用尽。</p>
+</li>
+<li><p>–ipv6–:128位。8个无符号整数！</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>公网（互联网）-私网</p>
+<ul>
+<li>ABCD类地址</li>
+<li>192.168.xx.xx专门给组织内部使用</li>
+</ul>
+</li>
+</ul>
+<h1 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h1><p>端口表示计算机的程序的进程</p>
+<ul>
+<li><p>不同的进程有不同的端口号！用来区分软件</p>
+</li>
+<li><p>被规定 0~65535</p>
+</li>
+<li><p>TCP,UDP:65535*2  TCP:80 UDP:80吗？当个协议下，端口不能冲突</p>
+</li>
+<li><p>端口分类</p>
+<ul>
+<li><p>共有端口0-1023</p>
+<ul>
+<li><p>http:80</p>
+</li>
+<li><p>https:443</p>
+</li>
+<li><p>FTP:21</p>
+</li>
+<li><p>TElent:23</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>程序注册端口：1024~49151，分配用户或程序</p>
+<ul>
+<li><p>TOMACAT:8080</p>
+</li>
+<li><p>MYSQL:3306</p>
+</li>
+<li><p>ORACLE:1521</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>动态、私有：49152~65535</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano #查看所有端r</span><br><span class="line">nerstat -ano|findstr &quot;5900&quot; 查看指定端口</span><br><span class="line">tasklist|findstr</span><br></pre></td></tr></table></figure>
+
+<p>ctrl +shift+esc 打开进程快捷键</p>
+</li>
+<li><pre><code>package net;
+
+import java.net.InetSocketAddress;
+
+public class TestInetSocketAdress &#123;
+    public static void main(String[] args) &#123;
+        InetSocketAddress inetSocketAddress = new InetSocketAddress(&quot;127.0.0.1&quot;, 8080);
+        System.out.println(inetSocketAddress);
+        System.out.println(inetSocketAddress.getPort());
+        System.out.println(inetSocketAddress.getHostName());//地址
+        System.out.println(inetSocketAddress.getPort());//端口
+    &#125;
+&#125;
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  # 通信协议</span><br><span class="line"></span><br><span class="line">  协议：约定，就好比我们现在说的普通话。</span><br><span class="line"></span><br><span class="line">  网络通信协议：速率，传输码率，代码结构，传输控制。。。</span><br><span class="line"></span><br><span class="line">  TCP&#x2F;IP协议簇</span><br><span class="line"></span><br><span class="line">  重要：</span><br><span class="line"></span><br><span class="line">  TCP:用户传输协议</span><br><span class="line"></span><br><span class="line">  udp:用户数据报协议</span><br><span class="line"></span><br><span class="line">  出名的协议：</span><br><span class="line"></span><br><span class="line">  TCP:</span><br><span class="line"></span><br><span class="line">  IP:网络互连协议</span><br><span class="line"></span><br><span class="line">  TCP UDP 对比</span><br><span class="line"></span><br><span class="line">  TCP:打电话</span><br><span class="line"></span><br><span class="line">  * 连接，稳定</span><br><span class="line"></span><br><span class="line">  * 三次握手 四次挥手</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">  * 客户端、服务器</span><br><span class="line"></span><br><span class="line">  * 传输完成，释放连接，效率低</span><br><span class="line"></span><br><span class="line">  UDP:发信息</span><br><span class="line"></span><br><span class="line">  不连接，不稳定</span><br><span class="line"></span><br><span class="line">  * 客户端、服务器：没有明显的界限</span><br><span class="line"></span><br><span class="line">  * 不管没有准备好，都可以发给你</span><br><span class="line"></span><br><span class="line">  * 导弹</span><br><span class="line">  * DDOS：洪水攻击！（饱和攻击）</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"># TCP</span><br><span class="line"></span><br><span class="line">客户端</span><br><span class="line"></span><br><span class="line">1.  连接服务器Socket</span><br><span class="line">2. 发送消息</span><br><span class="line"></span><br><span class="line">服务器</span><br><span class="line"></span><br><span class="line">1. 建立服务器端口ServerScoket</span><br><span class="line">2. 等待用户的连接accept</span><br><span class="line">3. 接收用户的消息</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+package net;
+</code></pre>
+</li>
+</ul>
+<p>import java.io.IOException;<br>import java.io.OutputStream;<br>import java.net.InetAddress;<br>import java.net.Socket;<br>import java.net.UnknownHostException;</p>
+<p>//客户端<br>public class TcpClientDemo01 {<br>    public static void main(String[] args) {<br>        Socket socket = null;<br>        OutputStream os = null;<br>        //1.要知道服务器的地址<br>        try {<br>            InetAddress client = InetAddress.getByName(“127.0.0.1”);<br>        //2端口号<br>            int port  = 8888;<br>            //3创建一个socket连接<br>              socket = new Socket(client,port);<br>        //4发送一个IO流<br>           os =  socket.getOutputStream();<br>            os.write(“你好，欢迎”.getBytes());<br>        } catch (Exception e) {<br>            e.printStackTrace();<br>        }finally {<br>           if (os!=null){<br>               try {<br>                   os.close();<br>               } catch (IOException e) {<br>                   e.printStackTrace();<br>               }<br>           }<br>           if (socket!=null){<br>               try {<br>                   socket.close();<br>               } catch (IOException e) {<br>                   e.printStackTrace();<br>               }<br>           }</p>
+<pre><code>    &#125;
+&#125;</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>package net;</p>
+<p>import java.io.ByteArrayOutputStream;<br>import java.io.IOException;<br>import java.io.InputStream;<br>import java.net.ServerSocket;<br>import java.net.Socket;</p>
+<p>//服务器端<br>public class TcpServerDemo01 {<br>    public static void main(String[] args) {<br>        ServerSocket serverSocket = null;<br>        Socket socket = null;<br>        InputStream is = null;<br>        ByteArrayOutputStream baos = null;<br>        //1.创建一个服务器地址<br>        try {<br>            serverSocket = new ServerSocket(8888);<br>            //2.等待客户连接过来<br>            socket = serverSocket.accept();<br>            //3.读取客户端的消息<br>            is = socket.getInputStream();<br>            baos = new ByteArrayOutputStream();<br>            byte[] buffer = new byte[1024];<br>            int len;<br>            while ((len = is.read(buffer)) != -1) {<br>                baos.write(buffer, 0, len);<br>            }<br>            System.out.println(baos.toString());</p>
+<pre><code>    &#125; catch (IOException e) &#123;
+        e.printStackTrace();
+    &#125; finally &#123;
+        //关闭资源
+        if (baos != null) &#123;
+            try &#123;
+                baos.close();
+            &#125; catch (IOException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+        if (is != null) &#123;
+            try &#123;
+                is.close();
+            &#125; catch (IOException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+        if (socket != null) &#123;
+            try &#123;
+                socket.close();
+            &#125; catch (IOException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+        if (serverSocket != null) &#123;
+            try &#123;
+                serverSocket.close();
+            &#125; catch (IOException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+
+    &#125;
+&#125;</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 咨询</span><br><span class="line"></span><br><span class="line">1. 发送消息</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>package net;</p>
+<p>import java.io.BufferedReader;<br>import java.io.InputStreamReader;<br>import java.net.DatagramPacket;<br>import java.net.DatagramSocket;<br>import java.net.InetSocketAddress;<br>import java.net.SocketException;</p>
+<p>public class UDPChatSend {<br>    public static void main(String[] args) throws  Exception {<br>        DatagramSocket socket = new DatagramSocket(8888);<br>        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));<br>        while (true) {<br>            String data = reader.readLine();<br>            byte[] datas = data.getBytes();<br>            DatagramPacket packet = new DatagramPacket(datas, 0, datas.length, new InetSocketAddress(“localhost”, 6666));<br>            socket.send(packet);<br>            if (data.equals(“bye”)){<br>                break;<br>            }<br>        }<br>         socket.close();<br>    }</p>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 接收消息</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>package net;</p>
+<p>import java.net.DatagramPacket;<br>import java.net.DatagramSocket;<br>import java.net.SocketException;</p>
+<p>public class UDPChatReserve {<br>    public static void main(String[] args) throws Exception {<br>        DatagramSocket socket = new DatagramSocket(6666);<br>        while (true) {<br>            byte[] container = new byte[1024];<br>            DatagramPacket packet = new DatagramPacket(container, 0, container.length);<br>           socket.receive(packet);<br>            byte[] data = packet.getData();<br>            String receiveData = new String(data, 0, data.length);<br>            System.out.println(receiveData);<br>            if (receiveData.equals(“bye”)) {<br>                break;<br>            }<br>            socket.receive(packet);</p>
+<pre><code>    &#125;
+    socket.close();
+&#125;</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在线咨询</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>package net;</p>
+<p>import java.io.BufferedReader;<br>import java.io.IOException;<br>import java.io.InputStreamReader;<br>import java.net.DatagramPacket;<br>import java.net.DatagramSocket;<br>import java.net.InetSocketAddress;<br>import java.net.SocketException;</p>
+<p>public class TalkSend implements Runnable{<br>    DatagramSocket socket = null;<br>    BufferedReader reader = null;<br>    private String toIp;<br>    private int toPort;<br>    private int fromPort;</p>
+<pre><code>public TalkSend(int fromPort,String toIp,int toPort) &#123;
+    this.toIp = toIp;
+    this.toPort = toPort;
+    this.fromPort = fromPort;
+    try &#123;
+         socket = new DatagramSocket(fromPort);
+         reader = new BufferedReader(new InputStreamReader(System.in));
+    &#125; catch (SocketException e) &#123;
+        e.printStackTrace();
+    &#125;
+&#125;
+
+@Override
+public void run() &#123;
+    while (true) &#123;
+        try &#123;
+            String data = reader.readLine();
+            byte[] datas = data.getBytes();
+            DatagramPacket packet = new DatagramPacket(datas, 0, datas.length, new InetSocketAddress(this.toIp, this.toPort));
+            socket.send(packet);
+            if (data.equals(&quot;bye&quot;)) &#123;
+                break;
+            &#125;
+        &#125; catch (IOException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+socket.close();
+&#125;</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>package net;</p>
+<p>import java.io.IOException;<br>import java.net.DatagramPacket;<br>import java.net.DatagramSocket;<br>import java.net.SocketException;</p>
+<p>public class TalkReceive implements Runnable{<br>    DatagramSocket socket = null;<br>    private int port;<br>    private  String msgFrom;<br>    public TalkReceive(int port,String msgFrom) {<br>        this.msgFrom = msgFrom;<br>        this.port = port;<br>        try {<br>            socket= new DatagramSocket(port);<br>        } catch (SocketException e) {<br>            e.printStackTrace();<br>        }<br>    }</p>
+<pre><code>@Override
+public void run() &#123;
+    while (true)&#123;
+        try &#123;
+            byte[] container = new byte[1024];
+            DatagramPacket packet = new DatagramPacket(container,0,container.length);
+            socket.receive(packet);
+            byte[] data = packet.getData();
+            String receiveData = new String(data, 0, data.length);
+            System.out.println(msgFrom+&quot;:&quot;+receiveData);
+            if (receiveData.equals(&quot;bye&quot;))&#123;
+                break;
+            &#125;
+        &#125; catch (IOException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+    socket.close();
+&#125;</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>package net;</p>
+<p>public class TalkStudent {<br>    public static void main(String[] args) {<br>        new Thread(new TalkSend(1111,”localhost”,6666)).start();<br>        new Thread(new TalkReceive(7777,”老师”)).start();<br>    }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>package net;</p>
+<p>public class TalkTeacher {<br>    public static void main(String[] args) {<br>        new Thread(new TalkSend(2222,”localhost”,7777)).start();<br>        new Thread(new TalkReceive(6666,”学生”)).start();<br>    }<br>}</p>
+<pre><code>
+# URL
+
+统一资源定位符：定位资源的，定位互联网上的某一个资源
+
+DNS域名解析 
+</code></pre>
+
+                                            
+
                                                 
-  
-  
+                                                    <div class="page-reward">
+                                                        <a href="javascript:;" class="page-reward-btn tooltip-top">
+                                                            <div class="tooltip tooltip-east">
+                                                                <span class="tooltip-item">
+              赏
+            </span>
+                                                                <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                                                            </div>
+                                                            
+                                                                
+                                                                    <div class="reward-box-item">
+                                                                        <img class="reward-img" src="/assets/smewm.png">
+                                                                        <span class="reward-type">微信</span>
+                                                                    </div>
+                                                                    
+                                                    </div>
+                                                    </span>
+                                                    </span>
+                                                    </span>
+                </div>
+                </a>
+    </div>
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/21/Thread/" class="archive-article-date">
-  	<time datetime="2020-12-21T15:42:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/21/Thread/">线程状态</a>
-    </h1>
-  
+        <div class="article-info article-info-index">
+            
+                    
+                        
 
-        <div class="article-info info-on-right">
-          
-          
+                            
 
+                                    
+                                        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
   </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://226396616.github.io/2020/12/26/tcp-ip/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+                                            
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
 </article>
+
+    
+<nav id="article-nav">
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/17/Java%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/" class="archive-article-date">
-  	<time datetime="2020-12-17T03:29:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-17</time>
-</a>
+  
+    <a href="/2020/12/22/ThreadReward/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ThreadReward</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+        
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/17/Java%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/"># Java如何让自己写的代码生成帮助文档</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%9A%84%E8%A6%81%E7%B4%A0"><span class="toc-number">1.</span> <span class="toc-text">网络通信的要素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IP"><span class="toc-number">2.</span> <span class="toc-text">IP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3"><span class="toc-number">3.</span> <span class="toc-text">端口</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/" class="archive-article-date">
-  	<time datetime="2020-12-16T10:57:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/16/1-java-%E8%AE%A1%E7%AE%970-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%92%8C%E4%BB%A5%E5%8F%8A1-100%E7%9A%84%E5%81%B6%E6%95%B0%E5%92%8C-2-java%E8%BE%93%E5%87%BA1000%E5%86%85%E5%8F%AF%E4%BB%A5%E8%A2%AB5%E6%95%B4%E9%99%A4%E7%9A%84%E6%95%B0%EF%BC%8C%E6%AF%8F%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E4%B8%80%E8%A1%8C/">1.java 计算0-100的奇数和以及1-100的偶数和 2.java输出1000内可以被5整除的数，每三个输出一行</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/16/hexo-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2020-12-16T08:08:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/16/hexo-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/">hexo 常见命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/16/java-%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97/" class="archive-article-date">
-  	<time datetime="2020-12-16T06:40:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/16/java-%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97/">java 中的标识符和关键字</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/23/MarkDown%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-11-23T13:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/23/MarkDown%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">MarkDown的使用练习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+        
+    </div>
+</aside>
 
 
+                
+                    
+
+                                
+
+                                            
+
+                                                        
+
+                                                                
+                                                                            
                                             </div>
                                         </div>
                                     </div>
@@ -379,8 +632,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

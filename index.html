@@ -78,7 +78,7 @@
                     </nav>
                     <nav>
                         总文章数
-                        15
+                        16
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -173,6 +173,317 @@
                                             </div>
                                             <div id="js-content" class="content-ll">
                                                 
+  
+    <article id="post-tcp-ip" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/26/tcp-ip/">tcp/ip</a>
+    </h1>
+  
+
+                    
+                            
+                                <a href="/2020/12/26/tcp-ip/" class="archive-article-date">
+  	<time datetime="2020-12-26T06:21:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-26</time>
+</a>
+                                    
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                                        <h1 id="网络通信的要素"><a href="#网络通信的要素" class="headerlink" title="网络通信的要素"></a>网络通信的要素</h1><p>如何实现通信？</p>
+<p>通信双方的地址：</p>
+<ul>
+<li><p>ip</p>
+</li>
+<li><p>端口号</p>
+</li>
+<li><p>192.168.16,124:5900</p>
+</li>
+</ul>
+<p><strong>规则：网络通信的协议</strong></p>
+<p>TCP/IP参考模型：</p>
+<p><img src="https://img-blog.csdn.net/20180316155619885?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzE2MDkzMzIz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="1575180473779"></p>
+<p>小结：</p>
+<ol>
+<li><p>网络编程中主要两个主要的问题</p>
+<ul>
+<li><p>如何准确定位到网路上的一台或者多台主机</p>
+</li>
+<li><p>找到主机后如何进行通信</p>
+</li>
+</ul>
+</li>
+<li><p>网络 编程中的要素</p>
+<ul>
+<li>IP和端口号 ip</li>
+<li>网络通信协议 udp,tcp</li>
+</ul>
+</li>
+<li><p>万物皆对象</p>
+</li>
+</ol>
+<h1 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h1><p>IP地址：InetAddress</p>
+<ul>
+<li><p>唯一定位一台网络上计算机</p>
+</li>
+<li><p>127.0.0.1：本机localhost</p>
+</li>
+<li><p>ip地址的分类</p>
+</li>
+<li><p>ipv4/ipv6</p>
+<ul>
+<li><p>–IPV4–:127.0.0.1 , 4个字节组成。 0~255， 42亿；30亿在北美，亚洲4亿。2011年就用尽。</p>
+</li>
+<li><p>–ipv6–:128位。8个无符号整数！</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>公网（互联网）-私网</p>
+<ul>
+<li>ABCD类地址</li>
+<li>192.168.xx.xx专门给组织内部使用</li>
+</ul>
+</li>
+</ul>
+<h1 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h1><p>端口表示计算机的程序的进程</p>
+<ul>
+<li><p>不同的进程有不同的端口号！用来区分软件</p>
+</li>
+<li><p>被规定 0~65535</p>
+</li>
+<li><p>TCP,UDP:65535*2  TCP:80 UDP:80吗？当个协议下，端口不能冲突</p>
+</li>
+<li><p>端口分类</p>
+<ul>
+<li><p>共有端口0-1023</p>
+<ul>
+<li><p>http:80</p>
+</li>
+<li><p>https:443</p>
+</li>
+<li><p>FTP:21</p>
+</li>
+<li><p>TElent:23</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>程序注册端口：1024~49151，分配用户或程序</p>
+<ul>
+<li><p>TOMACAT:8080</p>
+</li>
+<li><p>MYSQL:3306</p>
+</li>
+<li><p>ORACLE:1521</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>动态、私有：49152~65535</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano #查看所有端r</span><br><span class="line">nerstat -ano|findstr &quot;5900&quot; 查看指定端口</span><br><span class="line">tasklist|findstr</span><br></pre></td></tr></table></figure>
+
+<p>ctrl +shift+esc 打开进程快捷键</p>
+</li>
+<li><pre><code>package net;
+
+import java.net.InetSocketAddress;
+
+public class TestInetSocketAdress &#123;
+    public static void main(String[] args) &#123;
+        InetSocketAddress inetSocketAddress = new InetSocketAddress(&quot;127.0.0.1&quot;, 8080);
+        System.out.println(inetSocketAddress);
+        System.out.println(inetSocketAddress.getPort());
+        System.out.println(inetSocketAddress.getHostName());//地址
+        System.out.println(inetSocketAddress.getPort());//端口
+    &#125;
+&#125;
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  # 通信协议</span><br><span class="line"></span><br><span class="line">  协议：约定，就好比我们现在说的普通话。</span><br><span class="line"></span><br><span class="line">  网络通信协议：速率，传输码率，代码结构，传输控制。。。</span><br><span class="line"></span><br><span class="line">  TCP&#x2F;IP协议簇</span><br><span class="line"></span><br><span class="line">  重要：</span><br><span class="line"></span><br><span class="line">  TCP:用户传输协议</span><br><span class="line"></span><br><span class="line">  udp:用户数据报协议</span><br><span class="line"></span><br><span class="line">  出名的协议：</span><br><span class="line"></span><br><span class="line">  TCP:</span><br><span class="line"></span><br><span class="line">  IP:网络互连协议</span><br><span class="line"></span><br><span class="line">  TCP UDP 对比</span><br><span class="line"></span><br><span class="line">  TCP:打电话</span><br><span class="line"></span><br><span class="line">  * 连接，稳定</span><br><span class="line"></span><br><span class="line">  * 三次握手 四次挥手</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">  * 客户端、服务器</span><br><span class="line"></span><br><span class="line">  * 传输完成，释放连接，效率低</span><br><span class="line"></span><br><span class="line">  UDP:发信息</span><br><span class="line"></span><br><span class="line">  不连接，不稳定</span><br><span class="line"></span><br><span class="line">  * 客户端、服务器：没有明显的界限</span><br><span class="line"></span><br><span class="line">  * 不管没有准备好，都可以发给你</span><br><span class="line"></span><br><span class="line">  * 导弹</span><br><span class="line">  * DDOS：洪水攻击！（饱和攻击）</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"># TCP</span><br><span class="line"></span><br><span class="line">客户端</span><br><span class="line"></span><br><span class="line">1.  连接服务器Socket</span><br><span class="line">2. 发送消息</span><br><span class="line"></span><br><span class="line">服务器</span><br><span class="line"></span><br><span class="line">1. 建立服务器端口ServerScoket</span><br><span class="line">2. 等待用户的连接accept</span><br><span class="line">3. 接收用户的消息</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+package net;
+</code></pre>
+</li>
+</ul>
+<p>import java.io.IOException;<br>import java.io.OutputStream;<br>import java.net.InetAddress;<br>import java.net.Socket;<br>import java.net.UnknownHostException;</p>
+<p>//客户端<br>public class TcpClientDemo01 {<br>    public static void main(String[] args) {<br>        Socket socket = null;<br>        OutputStream os = null;<br>        //1.要知道服务器的地址<br>        try {<br>            InetAddress client = InetAddress.getByName(“127.0.0.1”);<br>        //2端口号<br>            int port  = 8888;<br>            //3创建一个socket连接<br>              socket = new Socket(client,port);<br>        //4发送一个IO流<br>           os =  socket.getOutputStream();<br>            os.write(“你好，欢迎”.getBytes());<br>        } catch (Exception e) {<br>            e.printStackTrace();<br>        }finally {<br>           if (os!=null){<br>               try {<br>                   os.close();<br>               } catch (IOException e) {<br>                   e.printStackTrace();<br>               }<br>           }<br>           if (socket!=null){<br>               try {<br>                   socket.close();<br>               } catch (IOException e) {<br>                   e.printStackTrace();<br>               }<br>           }</p>
+<pre><code>    &#125;
+&#125;</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>package net;</p>
+<p>import java.io.ByteArrayOutputStream;<br>import java.io.IOException;<br>import java.io.InputStream;<br>import java.net.ServerSocket;<br>import java.net.Socket;</p>
+<p>//服务器端<br>public class TcpServerDemo01 {<br>    public static void main(String[] args) {<br>        ServerSocket serverSocket = null;<br>        Socket socket = null;<br>        InputStream is = null;<br>        ByteArrayOutputStream baos = null;<br>        //1.创建一个服务器地址<br>        try {<br>            serverSocket = new ServerSocket(8888);<br>            //2.等待客户连接过来<br>            socket = serverSocket.accept();<br>            //3.读取客户端的消息<br>            is = socket.getInputStream();<br>            baos = new ByteArrayOutputStream();<br>            byte[] buffer = new byte[1024];<br>            int len;<br>            while ((len = is.read(buffer)) != -1) {<br>                baos.write(buffer, 0, len);<br>            }<br>            System.out.println(baos.toString());</p>
+<pre><code>    &#125; catch (IOException e) &#123;
+        e.printStackTrace();
+    &#125; finally &#123;
+        //关闭资源
+        if (baos != null) &#123;
+            try &#123;
+                baos.close();
+            &#125; catch (IOException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+        if (is != null) &#123;
+            try &#123;
+                is.close();
+            &#125; catch (IOException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+        if (socket != null) &#123;
+            try &#123;
+                socket.close();
+            &#125; catch (IOException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+        if (serverSocket != null) &#123;
+            try &#123;
+                serverSocket.close();
+            &#125; catch (IOException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+
+    &#125;
+&#125;</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 咨询</span><br><span class="line"></span><br><span class="line">1. 发送消息</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>package net;</p>
+<p>import java.io.BufferedReader;<br>import java.io.InputStreamReader;<br>import java.net.DatagramPacket;<br>import java.net.DatagramSocket;<br>import java.net.InetSocketAddress;<br>import java.net.SocketException;</p>
+<p>public class UDPChatSend {<br>    public static void main(String[] args) throws  Exception {<br>        DatagramSocket socket = new DatagramSocket(8888);<br>        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));<br>        while (true) {<br>            String data = reader.readLine();<br>            byte[] datas = data.getBytes();<br>            DatagramPacket packet = new DatagramPacket(datas, 0, datas.length, new InetSocketAddress(“localhost”, 6666));<br>            socket.send(packet);<br>            if (data.equals(“bye”)){<br>                break;<br>            }<br>        }<br>         socket.close();<br>    }</p>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 接收消息</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>package net;</p>
+<p>import java.net.DatagramPacket;<br>import java.net.DatagramSocket;<br>import java.net.SocketException;</p>
+<p>public class UDPChatReserve {<br>    public static void main(String[] args) throws Exception {<br>        DatagramSocket socket = new DatagramSocket(6666);<br>        while (true) {<br>            byte[] container = new byte[1024];<br>            DatagramPacket packet = new DatagramPacket(container, 0, container.length);<br>           socket.receive(packet);<br>            byte[] data = packet.getData();<br>            String receiveData = new String(data, 0, data.length);<br>            System.out.println(receiveData);<br>            if (receiveData.equals(“bye”)) {<br>                break;<br>            }<br>            socket.receive(packet);</p>
+<pre><code>    &#125;
+    socket.close();
+&#125;</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在线咨询</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>package net;</p>
+<p>import java.io.BufferedReader;<br>import java.io.IOException;<br>import java.io.InputStreamReader;<br>import java.net.DatagramPacket;<br>import java.net.DatagramSocket;<br>import java.net.InetSocketAddress;<br>import java.net.SocketException;</p>
+<p>public class TalkSend implements Runnable{<br>    DatagramSocket socket = null;<br>    BufferedReader reader = null;<br>    private String toIp;<br>    private int toPort;<br>    private int fromPort;</p>
+<pre><code>public TalkSend(int fromPort,String toIp,int toPort) &#123;
+    this.toIp = toIp;
+    this.toPort = toPort;
+    this.fromPort = fromPort;
+    try &#123;
+         socket = new DatagramSocket(fromPort);
+         reader = new BufferedReader(new InputStreamReader(System.in));
+    &#125; catch (SocketException e) &#123;
+        e.printStackTrace();
+    &#125;
+&#125;
+
+@Override
+public void run() &#123;
+    while (true) &#123;
+        try &#123;
+            String data = reader.readLine();
+            byte[] datas = data.getBytes();
+            DatagramPacket packet = new DatagramPacket(datas, 0, datas.length, new InetSocketAddress(this.toIp, this.toPort));
+            socket.send(packet);
+            if (data.equals(&quot;bye&quot;)) &#123;
+                break;
+            &#125;
+        &#125; catch (IOException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+socket.close();
+&#125;</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>package net;</p>
+<p>import java.io.IOException;<br>import java.net.DatagramPacket;<br>import java.net.DatagramSocket;<br>import java.net.SocketException;</p>
+<p>public class TalkReceive implements Runnable{<br>    DatagramSocket socket = null;<br>    private int port;<br>    private  String msgFrom;<br>    public TalkReceive(int port,String msgFrom) {<br>        this.msgFrom = msgFrom;<br>        this.port = port;<br>        try {<br>            socket= new DatagramSocket(port);<br>        } catch (SocketException e) {<br>            e.printStackTrace();<br>        }<br>    }</p>
+<pre><code>@Override
+public void run() &#123;
+    while (true)&#123;
+        try &#123;
+            byte[] container = new byte[1024];
+            DatagramPacket packet = new DatagramPacket(container,0,container.length);
+            socket.receive(packet);
+            byte[] data = packet.getData();
+            String receiveData = new String(data, 0, data.length);
+            System.out.println(msgFrom+&quot;:&quot;+receiveData);
+            if (receiveData.equals(&quot;bye&quot;))&#123;
+                break;
+            &#125;
+        &#125; catch (IOException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+    socket.close();
+&#125;</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>package net;</p>
+<p>public class TalkStudent {<br>    public static void main(String[] args) {<br>        new Thread(new TalkSend(1111,”localhost”,6666)).start();<br>        new Thread(new TalkReceive(7777,”老师”)).start();<br>    }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>package net;</p>
+<p>public class TalkTeacher {<br>    public static void main(String[] args) {<br>        new Thread(new TalkSend(2222,”localhost”,7777)).start();<br>        new Thread(new TalkReceive(6666,”学生”)).start();<br>    }<br>}</p>
+<pre><code>
+# URL
+
+统一资源定位符：定位资源的，定位互联网上的某一个资源
+
+DNS域名解析 
+</code></pre>
+
+                                            
+
+                                                
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
+                        
+
+                            
+                                <p class="article-more-link">
+                                    <a class="article-more-a" href="/2020/12/26/tcp-ip/">
+                                        展开全文 >></a>
+                                </p>
+                                
+
+                                    
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+                
   
     <article id="post-ThreadReward" class="article article-type-post  article-index" itemscope itemprop="blogPost">
     <div class="article-inner">
@@ -804,84 +1115,6 @@
                             
                                 <p class="article-more-link">
                                     <a class="article-more-a" href="/2020/12/22/PriorityThread/">
-                                        展开全文 >></a>
-                                </p>
-                                
-
-                                    
-                                                <div class="clearfix"></div>
-        </div>
-        </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-                
-  
-    <article id="post-Thread" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/21/Thread/">线程状态</a>
-    </h1>
-  
-
-                    
-                            
-                                <a href="/2020/12/21/Thread/" class="archive-article-date">
-  	<time datetime="2020-12-21T15:42:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-21</time>
-</a>
-                                    
-            </header>
-            
-                <div class="article-entry" itemprop="articleBody">
-                    
-                                        <h1 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h1><p>new——&gt;就绪状态——&gt;阻塞状态——&gt;运行状态——&gt;dead</p>
-<ol>
-<li><p>线程一旦创建就进入到新生状态</p>
-</li>
-<li><p>当调用start（）方法，线程立即进入就绪状态，但不意味着立即调度执行</p>
-</li>
-<li><p>当调用sleep，wait或同步锁定时，线程进入阻塞状态，就是代码不往下执行，阻塞事件解除后，重新进入就绪状态，等待cpu调度执行。</p>
-</li>
-<li><p>进入运行状态，线程才真正执行线程的代码块</p>
-</li>
-<li><p><strong>线程终端或者结束，一旦进入死亡状态，就不能再次启动。</strong></p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class TheadTest &#123;</span><br><span class="line">    public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">        Thread thread &#x3D; new Thread(()-&gt;&#123;&#x2F;&#x2F;创建一个线程，并且模拟网络延迟</span><br><span class="line">            for (int i &#x3D; 0; i &lt; 5; i++) &#123;</span><br><span class="line">                try &#123;</span><br><span class="line">                    Thread.sleep(1000);</span><br><span class="line">                &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(&quot;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&quot;);</span><br><span class="line">        &#125;);</span><br><span class="line">        &#x2F;&#x2F;观察线程刚创建出来的状态</span><br><span class="line">        Thread.State state &#x3D; thread.getState();</span><br><span class="line">        System.out.println(state);</span><br><span class="line">        &#x2F;&#x2F;观察线程启动后的状态</span><br><span class="line">        thread.start();&#x2F;&#x2F;启动线程</span><br><span class="line">        state &#x3D; thread.getState();</span><br><span class="line">         System.out.println(state);&#x2F;&#x2F;Run</span><br><span class="line">         while(state!&#x3D;Thread.State.TERMINATED)&#123;&#x2F;&#x2F;只要线程不终止，就一直输出状态</span><br><span class="line">         Thread.sleep(100);</span><br><span class="line">         state &#x3D; thread.getState();</span><br><span class="line">         System.out.println(state);</span><br><span class="line">         </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#x2F;&#x2F;死亡以后的线程就不能再启动了</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-                                            
-
-                                                
-        </div>
-        <div class="article-info article-info-index">
-            
-                    
-                        
-
-                            
-                                <p class="article-more-link">
-                                    <a class="article-more-a" href="/2020/12/21/Thread/">
                                         展开全文 >></a>
                                 </p>
                                 

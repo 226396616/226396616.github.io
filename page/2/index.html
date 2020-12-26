@@ -78,7 +78,7 @@
                     </nav>
                     <nav>
                         总文章数
-                        15
+                        16
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -173,6 +173,84 @@
                                             </div>
                                             <div id="js-content" class="content-ll">
                                                 
+  
+    <article id="post-Thread" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/21/Thread/">线程状态</a>
+    </h1>
+  
+
+                    
+                            
+                                <a href="/2020/12/21/Thread/" class="archive-article-date">
+  	<time datetime="2020-12-21T15:42:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-21</time>
+</a>
+                                    
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                                        <h1 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h1><p>new——&gt;就绪状态——&gt;阻塞状态——&gt;运行状态——&gt;dead</p>
+<ol>
+<li><p>线程一旦创建就进入到新生状态</p>
+</li>
+<li><p>当调用start（）方法，线程立即进入就绪状态，但不意味着立即调度执行</p>
+</li>
+<li><p>当调用sleep，wait或同步锁定时，线程进入阻塞状态，就是代码不往下执行，阻塞事件解除后，重新进入就绪状态，等待cpu调度执行。</p>
+</li>
+<li><p>进入运行状态，线程才真正执行线程的代码块</p>
+</li>
+<li><p><strong>线程终端或者结束，一旦进入死亡状态，就不能再次启动。</strong></p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class TheadTest &#123;</span><br><span class="line">    public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">        Thread thread &#x3D; new Thread(()-&gt;&#123;&#x2F;&#x2F;创建一个线程，并且模拟网络延迟</span><br><span class="line">            for (int i &#x3D; 0; i &lt; 5; i++) &#123;</span><br><span class="line">                try &#123;</span><br><span class="line">                    Thread.sleep(1000);</span><br><span class="line">                &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(&quot;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&quot;);</span><br><span class="line">        &#125;);</span><br><span class="line">        &#x2F;&#x2F;观察线程刚创建出来的状态</span><br><span class="line">        Thread.State state &#x3D; thread.getState();</span><br><span class="line">        System.out.println(state);</span><br><span class="line">        &#x2F;&#x2F;观察线程启动后的状态</span><br><span class="line">        thread.start();&#x2F;&#x2F;启动线程</span><br><span class="line">        state &#x3D; thread.getState();</span><br><span class="line">         System.out.println(state);&#x2F;&#x2F;Run</span><br><span class="line">         while(state!&#x3D;Thread.State.TERMINATED)&#123;&#x2F;&#x2F;只要线程不终止，就一直输出状态</span><br><span class="line">         Thread.sleep(100);</span><br><span class="line">         state &#x3D; thread.getState();</span><br><span class="line">         System.out.println(state);</span><br><span class="line">         </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#x2F;&#x2F;死亡以后的线程就不能再启动了</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+                                            
+
+                                                
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
+                        
+
+                            
+                                <p class="article-more-link">
+                                    <a class="article-more-a" href="/2020/12/21/Thread/">
+                                        展开全文 >></a>
+                                </p>
+                                
+
+                                    
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+                
   
     <article id="post-Java如何让自己写的代码生成帮助文档" class="article article-type-post  article-index" itemscope itemprop="blogPost">
     <div class="article-inner">
